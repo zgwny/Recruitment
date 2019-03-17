@@ -1,0 +1,12 @@
+com\recruitment\hr\controller\DictionaryConrtroller.class
+com\recruitment\hr\service\impl\CandidateServiceImpl.class
+com\recruitment\hr\controller\JobController.class
+com\recruitment\hr\service\impl\CompanyServiceImpl.class
+com\recruitment\hr\service\JobService.class
+com\recruitment\hr\controller\CandidateController.class
+com\recruitment\hr\service\CompanyService.class
+com\recruitment\hr\service\impl\HRServiceImpl.class
+com\recruitment\hr\service\impl\JobServiceImpl.class
+com\recruitment\hr\service\HRService.class
+com\recruitment\hr\service\CandidateService.class
+com\recruitment\hr\controller\PageController.class

@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,table,th,td{font-family:"Microsoft YaHei","simsun" ,Arial;margin:0;padding:0; font-size: 12px;word-break: break-all}
+fieldset,img,abbr,acronym{border:none}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+em,i{font-style:normal}
+a{text-decoration:none; color:#666;}
+a:hover{outline:none;}
+a,input:focus{outline:none}
+button{border:none;vertical-align:middle;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0;}
+address,caption,cite,code,dfn,th{font-weight:normal;font-style:normal;}
+ul,li{list-style:none;}
+a img, :link img, :visited img {border: 0;outline:none;}
+strong{ font-weight:normal;}
+.clear{ clear:both;zoom:1;height:0;font-size:1px;line-height: 0px;text-indent:-9999px;}
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix {zoom:1;display:block;}
+.mr{margin-right:0!important;}
+.fl{ float:left;}
+.fr{ float:right;}
+/*头部*/
+.col333{color:#333;}
+.col555{color:#555;}
+.mb15{margin-bottom:15px;}
+.icon{background-image: url("//img01.zhaopin.cn/2014/c/img/resumeCenter/icon_common7.png");background-repeat: no-repeat;vertical-align:middle;}
+.top{height:40px;line-height:38px;background:#2c3e50;width:100%;}
+.top_con{width:990px;margin:0 auto;}
+.top_con li{float: left;font-family:"微软雅黑" }
+.people{padding-right:13px;position:relative;*top:10px;}
+.icon_people{background-position: -16px -0px; width: 14px; height: 16px;}
+.icon_triangle{background-position: -30px -0px; width: 6px; height: 5px;}
+.icon_phone{background-position: -36px -0px; width: 10px; height: 16px;}
+.icon_sqt{background-position: -212px -0px; width: 10px; height: 10px;}
+.top_con li span{color: #fff;font-size: 14px;vertical-align: middle;*padding-left:3px;font-family: "微软雅黑"}
+.acc_hover{
+	display:none;
+	padding:10px 20px;
+	background:#2d4b65;
+	opacity:0.8;filter:alpha(opacity=80);
+	position:absolute;
+	top:50px;
+    right: 5px;
+    border-radius:3px;
+    z-index:12;
+}
+.top_sj{
+	position: absolute;right:20px;top: -10px;
+}
+.acc_hover li{width: 85px;line-height:35px;}
+.acc_hover li a{color: #fff;font-size:14px;}
+.acc_nav{background: #3498da;height: 80px;line-height: 80px;}
+.nav_con{width:990px;margin:0 auto;}
+.nav_link{height: 80px;}
+.nav_link li{float: left;
+			width: 88px;
+			text-align: center;}
+.nav_link li a{display: inline-block;color: #fff;font-size: 14px;width:88px;font-family: "微软雅黑"}
+.nav_img{margin-top:10px;padding-right:25px;width: 164px;height: 58px;}
+.nav_img img{cursor:pointer;}
+.nav_link a:hover,.nav_link a.current{background:url("//img01.zhaopin.cn/2014/c/img/resumeCenter/nav_bg.png") no-repeat 0 0px;color:#3498db;font-size: 16px;width:93px;height:85px;text-decoration: none;}
+.acc_container{
+	width:100%;
+	background:#f0f0f0;
+}
+.acc_content{
+	width:990px;
+	margin:0 auto;
+}
+/*底部*/
+.account_footer{
+	padding:30px 40px;
+	background:#fff;
+	width:910px;
+	margin:0 auto;
+	text-align: left;
+}
+.account_footerl{
+	width:910px;
+	text-align: center;
+}
+.account_footerl p a{
+	color:#555;
+	display:inline-block;
+	margin:0px 20px 18px;
+	font-family: "微软雅黑";
+}
+.footBot a{margin:0 10px 0 4px !important;color: #555 !important;}
+.footBot{padding-left: 140px;}
+.footBot a,.footBot span{float: left;}
+.account_footerl p a:hover{text-decoration: underline;}
+.account_footerl p a.acc_zpa
+{
+	color:#333;
+	font-weight:bold;
+}
+.acc_iphone{
+	font-size:24px;
+	font-weight:bold;
+	width: 172px;
+	*font-size: 22px;
+	font-family: "微软雅黑";
+}
+.mt26{margin:26px 0 20px 48px;}
+/*兼容*/
+.top_con .icon{display: inline-block;}
+.layout{margin:10px auto 0 !important;}
+.job_row,#popupTit{background: #3498da !important;}
+.emailAll{margin:20px auto !important;}
+#popupCon,#popupInnerCon{border:none !important;}
+.account_footer p{border:none;font-family: "微软雅黑";}
+.dredge_module_wrap,.FeedBack_box{margin-top:20px;}
+.buju{background:none !important;}
+.account_footer p span{*height:34px;display: inline-block;color: #555}
+.people ul.acc_hover,.people{z-index:36;}
+.table5 td{width:auto;white-space: nowrap;}
+/*飘窗二维码*/
+#flutter{position: fixed;top:266px;left:50%;margin-left: -615px;}
+/*职位置顶添加模块*/
+.jobSetTopDiv{margin-right: 30px;padding-top: 10px;}
+.jobSetTopDiv p{float: left;color: #fff;height:21px;line-height: 21px;margin-right: 6px;}
+.jobSetTopDiv p span{color:#ffcc00;font-size: 14px;}
+.jobSetTopDiv a{display: block;float: left;height:21px;background: #ffb852;color: #663e00;font-size: 12px;line-height: 21px;border-radius: 12px;padding:0 8px;}

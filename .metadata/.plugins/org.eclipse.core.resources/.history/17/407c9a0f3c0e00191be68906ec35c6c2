@@ -1,0 +1,8 @@
+package com.recruitment.user.service;
+
+import com.recruitment.pojo.RecruitmentResult;
+
+public interface SearchService {
+
+    RecruitmentResult importJob() throws Exception;
+}

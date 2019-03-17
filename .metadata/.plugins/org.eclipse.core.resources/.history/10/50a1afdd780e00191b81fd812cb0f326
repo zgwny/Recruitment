@@ -1,0 +1,1010 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<title>沈阳java招聘（求职）java招聘（求职）尽在智联招聘</title>
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="description" content="智联招聘为您提供沈阳招聘信息,与沈阳相关的工作尽在智联招聘">
+<meta name="keywords" content="沈阳招聘,沈阳招聘信息">
+
+<link rel="stylesheet" href="css/vendors.902088.css">
+<link rel="stylesheet" href="css/index.f6e4a9.css">
+
+<link rel="shortcut icon" type="image/ico"
+	href="//img00.zhaopin.cn/new2011/images/ie9.ico">
+<link rel="stylesheet" type="text/css" href="css/iconfont1.css">
+</head>
+<body rlt="1">
+	<div id="root">
+		<div class="zp default">
+			<div>
+				<div class="popupApply layer" style="display: none;">
+					<div class="layer__topbar">
+						<h1 class="layer__topbar__title"></h1>
+						<a title="关闭" class="layer__topbar__close"></a>
+					</div>
+					<div class="mainBlock layer__mainblock">
+						<div class="login-block" style="display: none;">
+							<form name="loginForm">
+								<ul class="login-block__ul">
+									<li class="login-block__ul__li"><label
+										class="leftLabel login-block__label"> 用户名：<input
+											type="text" name="loginname" maxlength="100"
+											placeholder="输入手机号/邮箱" class="login-block__label__input"></label>
+										<label class="login-blog login-block__label--login"><span
+											class="login-block__label__span--auto"></span>自动登录 </label>
+										<p class="login-block__usererr" style="display: none;"></p></li>
+									<li class="login-block__ul__li"><label
+										class="leftLabel login-block__label"> 密&nbsp;&nbsp;码：
+											<input type="password" name="password" value=""
+											maxlength="25"
+											class="login-block__label__input
+                      login-block__label__input--password">
+									</label> <a href="//passport.zhaopin.com/findpassword/email/step1"
+										target="_blank" class="login-block__ul__li__forget">忘记密码</a></li>
+									<li class="login-block__ul__li  login-block__ul__li--tips"></li>
+									<li class="login-block__ul__li" style="display: none;"><label
+										class="login-block__label">验证码： <input type="text"
+											name="validate" value="" maxlength="5"
+											class="login-block__label__input
+             login-block__label__input--validate"></label>
+										<a title="刷新验证码" href="#"><img alt="看不清？点击更换" src=""
+											class="login-block__vimg" align="absmiddle"></a> <a
+										title="刷新验证码" href="#">看不清，换一张</a></li>
+								</ul>
+								<div class="login-submit">
+									<div class="login-submit__left" style="width: 88px;">
+										<a href="javascript:;" class="login-submit__btn"
+											style="width: 88px;">登&nbsp;&nbsp;录</a>
+									</div>
+									<div class="login-submit__right" style="width: 186px;">
+										<a href="//passport.zhaopin.com/account/register"
+											target="_blank" class="login-submit__right__txtlint">快速注册，申请职位</a>
+									</div>
+									<div class="clear"></div>
+								</div>
+								<div class="greyDottedLineH"></div>
+							</form>
+							<div class="other-login">
+								<span class="other-login__word">使用其他方式登录</span> <a
+									href="https://passport.zhaopin.com/oauth/qq/enter"
+									class="other-login__a"></a> <a
+									href="https://passport.zhaopin.com/oauth/weixin/enter"
+									class="other-login__a"></a> <a
+									href="https://passport.zhaopin.com/oauth/weibo/enter"
+									class="other-login__a"></a>
+							</div>
+						</div>
+						<div style="display: none;">
+							<div class="collect-succ">
+								<div class="collect-succ__title">
+									<i class="collect-succ__title__icon"></i> <span></span>
+								</div>
+								<div class="collect-succ__content">
+									您可以在 <a target="_blank"
+										href="//my.zhaopin.com/myzhaopin/jobmng_fav.asp"
+										class="collect-succ__content__a">职位收藏夹</a> 中查看
+								</div>
+							</div>
+							<p class="collect-btn">
+								<span class="collect-btn__span">知道了</span>
+							</p>
+						</div>
+						<div style="display: none;">
+							<div class="collect-err">
+								<div class="collect-err__fail">
+									<i class="collect-err__fail__icon"></i> <span></span>
+								</div>
+								<div class="collect-content">
+									您可以在 <a target="_blank"
+										href="//my.zhaopin.com/myzhaopin/jobmng_fav.asp"
+										class="collect-content__a">职位收藏夹</a> 中查看
+								</div>
+							</div>
+							<p class="collect-btn">
+								<span class="collect-btn__span">关闭</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="commonError layer-error" style="display: none;">
+					<div class="layer-error__top">
+						<h3 class="icon-h3 layer-error__top__title">
+							<i class="layer-error__top__warn"></i><span></span>
+						</h3>
+					</div>
+				</div>
+				<div class="mark" style="display: none;"></div>
+			</div>
+			<div class="zpheader clearfix">
+				<div class="zp-container zp-header-content">
+					<div class="topmenu zp-container">
+						<div class="clearfix topmenu__top">
+							<div class="fr">
+								<div class="zp-welcome hidden">
+									<span
+										onclick="dyweTrackEvent('companysize','postsearchsetting001')">欢迎回来</span>
+									<span class="zp-welcome__user"><span
+										class="zp-welcome__name">张文岳</span> <i
+										class="zp-welcome__user__side icon zp-iconfont zp-welcome__user__side--xiangxiajiatou"></i>
+										<div style="display: none;">
+											<ul class="zp-setlist zp-welcome__user__list">
+												<li class="zp-welcome__user__list__item"><a
+													href="https://i.zhaopin.com" target="_blank"
+													class="zp-welcome__user__list__item__link"> 个人中心 </a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="https://i.zhaopin.com/resume" target="_blank"
+													class="zp-welcome__user__list__item__link"> 我的简历</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="https://i.zhaopin.com/schedule?status=viewed"
+													target="_blank" class="zp-welcome__user__list__item__link">
+														求职反馈</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/ResumeCenter/AccountSet/Index"
+													target="_blank" class="zp-welcome__user__list__item__link">账号设置</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/ResumeCenter/MyCollect/Index"
+													target="_blank" class="zp-welcome__user__list__item__link">我的收藏</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/Order/OrderManager/MyOrder?waitPay=false&amp;pageNo=1&amp;pageSize=10"
+													target="_blank" class="zp-welcome__user__list__item__link">我的订单</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/Order/OrderManager/GetJobSeekerStatistics?serviceId=&amp;resumeNumber=&amp;version="
+													target="_blank" class="zp-welcome__user__list__item__link">求职统计</a></li>
+												<li class="zp-welcome__user__list__item"><a id="logout"
+													href="javascript:;"
+													class="zp-welcome__user__list__item__link">退出</a></li>
+											</ul>
+										</div></span>
+								</div>
+								<div class="zp-phone">
+									<i class="icon zp-iconfont zp-dianhua fs12 zp-phone__num"></i>400-885-9898
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="zp-searchs">
+						<div class="zp-searchs__fixed clearfix">
+							<div class="zp-searchs__box zp-search-box zp-container">
+								<div class="fl zp-searchs__box__margintop">
+									<a href="https://www.zhaopin.com" target="_blank"
+										class="fl zp-searchs__link"><img
+										src="//desktop-bucket.zhaopin.cn/assets/zhaopin_logo.465947.png"></a>
+								</div>
+								<div
+									class="fl sf-search-box zp-searchs__sf fl zp-searchs__sf--margintop zp-searchs__sf--animation">
+									<div class="search-box">
+										<div class="zp-search-common search-box__common">
+											<div onselectstart="return false"
+												class="zp-i-select zp-select">
+												<div class="zp-select__wrapper">
+													<div
+														class="zp-select__wrapper__label zp-i-select-label zp-iconfont">
+														<span class="zp-select__wrapper__label__word">职位</span>
+													</div>
+												</div>
+												<!---->
+											</div>
+											<input placeholder="请输入关键词,例如:JAVA,销售代表,行政助理等" type="text"
+												value="" class="search-box__common__input"> <a
+												href="javascript:;"
+												class="search-box__common__btn search-box__common__btn--blue"><i
+												class="icon zp-iconfont search-box__common__icon zp-search"></i></a>
+											<ul class="search-box__list search-box__list"
+												style="display: none;"></ul>
+										</div>
+										<div style="display: none;">
+											<p class="search-box__recommend">
+												<label class="search-box__recommend__keyword">热搜:</label> <a
+													class="search-box__recommend__word">java</a><a
+													class="search-box__recommend__word">沈阳志越城峰科技</a><a
+													class="search-box__recommend__word">鸿进科技</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="fr zp-searchs__job">
+									<span>导航</span> <img
+										src="//desktop-bucket.zhaopin.cn/assets/top-nav.57f4a1.png"
+										class="zp-searchs__job__img">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!---->
+				</div>
+			</div>
+			<div class="souheader souheader--fixed">
+				<ul class="zp-container souheader__channel clearfix">
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="https://www.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>首页</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//www.zhaopin.com/shenyang/" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>沈阳站</span>
+									<!----> <i class="souheader__channel__item__name--zpnew"></i></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="http://student.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>校园招聘</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//www.highpin.cn/zhiwei?fromType=12&amp;utm_source=zpsygdad&amp;utm_medium=cpc&amp;utm_content=zpsygdadtextlink&amp;utm_campaign=zpsygdadanalytics&amp;utm_term=onlinepromo_201402&amp;at=bde831ac59124454af12d989af53ad84&amp;rt=51fae8881fee46d5a150fea20ac4161c"
+						target="_blank" class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>高端职位</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="https://overseas.zhaopin.com/" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>海外招聘</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//study.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>智联教育</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//ceping.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>智联测评</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="https://zq.zhaopin.com?utm_source=%E9%A6%96%E9%A1%B5&amp;utm_medium=button&amp;utm_campaign=&amp;utm_term=&amp;utm_content="
+						target="_blank" class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>求职奇葩事</span>
+									<!----> <!----></span></span></a></li>
+				</ul>
+				<!---->
+			</div>
+			<div class="zp__container">
+				<div id="search" class="query-search">
+					<div class="query-search__border">
+						<div class="query-search__border__item">地点:</div>
+						<div class="query-search__border__content ">
+							<div id="queryCityBox" class="query-city">
+								<ul id="queryTitleUls" class="clearfix query-city__uls">
+									<li class="currentCity query-city__uls__li current-city"><span
+										class="current-city__name ">沈阳</span> <span
+										class="current-city__down span_down"></span></li>
+									<li class="local-type query-city__uls__li" style="display:;"><div
+											class="local-type__text">
+											<span class="local-type__text__name localName">行政区</span> <span
+												class="arrow_down local-type__text__arrow--down"></span>
+										</div></li>
+									<li class="local-type query-city__uls__li" style="display:;"><div
+											class="local-type__text">
+											<span class="local-type__text__name">地铁沿线</span> <span
+												class="local-type__text__arrow--down" style="right: 18px"></span>
+										</div></li>
+									<li class="set-home query-city__uls__li"><span
+										class="setting set-home__setting">设置家的地址</span></li>
+								</ul>
+								<!---->
+								<!---->
+								<!---->
+							</div>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+					<div class="query-search__border">
+						<div class="query-search__border__item">行业:</div>
+						<div class="query-search__border__content">
+							<div class="query-industry">
+								<a href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3"
+									class="query-industry__allbtn">不限</a>
+								<ul class="industryUls query-industry__uls">
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10100"
+												class="query-industry__uls__item__name ">IT|通信|电子|互联网</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10200"
+												class="query-industry__uls__item__name ">金融业</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10800"
+												class="query-industry__uls__item__name ">房地产|建筑业</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10900"
+												class="query-industry__uls__item__name ">商业服务</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10300"
+												class="query-industry__uls__item__name ">贸易|批发|零售|租赁业</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10400"
+												class="query-industry__uls__item__name ">文体教育|工艺美术</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10000"
+												class="query-industry__uls__item__name ">服务业</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=11300"
+												class="query-industry__uls__item__name ">文化|传媒|娱乐|体育</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=10500"
+												class="query-industry__uls__item__name ">生产|加工|制造</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=11500"
+												class="query-industry__uls__item__name ">交通|运输|物流|仓储</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=11600"
+												class="query-industry__uls__item__name ">能源|矿产|环保</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=11100"
+												class="query-industry__uls__item__name ">政府|非盈利机构</a>
+										</div></li>
+									<li class="query-industry__uls__item"><div
+											class="query-industry__uls__item__text">
+											<a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;in=11400"
+												class="query-industry__uls__item__name ">农|林|牧|渔|其他</a>
+										</div></li>
+								</ul>
+								<div class="query-industry__clear"></div>
+							</div>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+					<div class="query-search__border">
+						<div class="query-search__border__item">月薪:</div>
+						<div class="query-search__border__content">
+							<div class="query_salary_box query-salary">
+								<a href="?jl=599&amp;sf=0&amp;st=0&amp;kw=java&amp;kt=3"
+									class="query-salary__all--uncheck">不限</a>
+								<ul class="query-salary__uls">
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=1&amp;st=1000&amp;kw=java&amp;kt=3"
+										class="zp-query">1K以下</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=1001&amp;st=2000&amp;kw=java&amp;kt=3"
+										class="zp-query">1K-2K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=2001&amp;st=4000&amp;kw=java&amp;kt=3"
+										class="zp-query">2K-4K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=4001&amp;st=6000&amp;kw=java&amp;kt=3"
+										class="zp-query">4K-6K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=6001&amp;st=8000&amp;kw=java&amp;kt=3"
+										class="zp-query">6K-8K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3"
+										class="zp-query zp-queryChecked">8K-10K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=10001&amp;st=15000&amp;kw=java&amp;kt=3"
+										class="zp-query">10K-15K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=15001&amp;st=25000&amp;kw=java&amp;kt=3"
+										class="zp-query">15K-25K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=25001&amp;st=35000&amp;kw=java&amp;kt=3"
+										class="zp-query">25K-35K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=35001&amp;st=50000&amp;kw=java&amp;kt=3"
+										class="zp-query">35K-50K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=50001&amp;st=70000&amp;kw=java&amp;kt=3"
+										class="zp-query">50K-70K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=70001&amp;st=100000&amp;kw=java&amp;kt=3"
+										class="zp-query">70K-100K</a></li>
+									<li class="query-salary__uls__li"><a
+										href="?jl=599&amp;sf=100001&amp;st=999999&amp;kw=java&amp;kt=3"
+										class="zp-query">100K以上</a></li>
+								</ul>
+							</div>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+					<div class="query-search__border">
+						<div class="query-search__border__item">其他:</div>
+						<div class="query-search__border__content">
+							<div class="query-others">
+								<div class="query-others__container">
+									<div class="cascader_container query-cascader">
+										<div class="query-cascader__input">
+											<span>职位类别</span> <span class="query-cascader__input__down"></span>
+										</div>
+										<div class="query-cascader__selecter"
+											style="width: 171px; display: none;">
+											<ul
+												class="
+      query-cascader__selecter__level
+      query-cascader__selecter__level--first">
+												<li class="query-cascader__selecter__level__li"><span
+													class="query-cascader__selecter__level__li__jobtype">不限</span></li>
+												<li class="query-cascader__selecter__level__li"><span>销售|客服|市场</span></li>
+												<li class="query-cascader__selecter__level__li"><span>财务|人力资源|行政</span></li>
+												<li class="query-cascader__selecter__level__li"><span>项目|质量|高级管理</span></li>
+												<li class="query-cascader__selecter__level__li"><span>IT|互联网|通信</span></li>
+												<li class="query-cascader__selecter__level__li"><span>房产|建筑|物业管理</span></li>
+												<li class="query-cascader__selecter__level__li"><span>金融</span></li>
+												<li class="query-cascader__selecter__level__li"><span>采购|贸易|交通|物流</span></li>
+												<li class="query-cascader__selecter__level__li"><span>生产|制造</span></li>
+												<li class="query-cascader__selecter__level__li"><span>传媒|印刷|艺术|设计</span></li>
+												<li class="query-cascader__selecter__level__li"><span>咨询|法律|教育|翻译</span></li>
+												<li class="query-cascader__selecter__level__li"><span>服务业</span></li>
+												<li class="query-cascader__selecter__level__li"><span>能源|环保|农业|科研</span></li>
+												<li class="query-cascader__selecter__level__li"><span>兼职|实习|社工|其他</span></li>
+											</ul>
+											<!---->
+											<!---->
+										</div>
+									</div>
+								</div>
+								<div class="query-others__title">
+									<div
+										class="query-others__title__item query-others__title__item">
+										<span class="">工作经验</span> <span
+											class="query-others__title__down"></span>
+									</div>
+									<div class="query-others__borders workExperience"
+										style="display: none;">
+										<ul class="query-others__borders__detail">
+											<li class="query-others__borders__detail__item "><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;we=-1"
+												class="zp-queryChecked"> 不限</a></li>
+											<!---->
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;we=0000"
+												class="zp-query">无经验</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;we=0001"
+												class="zp-query">1年以下</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;we=0103"
+												class="zp-query">1-3年</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;we=0305"
+												class="zp-query">3-5年</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;we=0510"
+												class="zp-query">5-10年</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;we=1099"
+												class="zp-query">10年以上</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="query-others__title">
+									<div
+										class="query-others__title__item query-others__title__item">
+										<span class="">学历要求</span> <span
+											class="query-others__title__down"></span>
+									</div>
+									<div class="query-others__borders education"
+										style="display: none;">
+										<ul class="query-others__borders__detail">
+											<li class="query-others__borders__detail__item "><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;el=-1"
+												class="zp-queryChecked"> 不限</a></li>
+											<!---->
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;el=7"
+												class="zp-query">高中/中专/中技及以下</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;el=5"
+												class="zp-query">大专及同等学历</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;el=4"
+												class="zp-query">本科/学士及等同学历</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;el=3"
+												class="zp-query">硕士/研究生及等同学历</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;el=1"
+												class="zp-query">博士及以上</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;el=8"
+												class="zp-query">其他</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="query-others__title">
+									<div
+										class="query-others__title__item query-others__title__item">
+										<span class="">公司性质</span> <span
+											class="query-others__title__down"></span>
+									</div>
+									<div class="query-others__borders companyType"
+										style="display: none;">
+										<ul class="query-others__borders__detail">
+											<li class="query-others__borders__detail__item "><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=-1"
+												class="zp-queryChecked"> 不限</a></li>
+											<!---->
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=1"
+												class="zp-query">国企</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=2"
+												class="zp-query">外商独资</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=3"
+												class="zp-query">代表处</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=4"
+												class="zp-query">合资</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=5"
+												class="zp-query">民营</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=8"
+												class="zp-query">股份制企业</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=9"
+												class="zp-query">上市公司</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=6"
+												class="zp-query">国家机关</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=10"
+												class="zp-query">事业单位</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=11"
+												class="zp-query">银行</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=12"
+												class="zp-query">医院</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=13"
+												class="zp-query">学校/下级学院</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=14"
+												class="zp-query">律师事务所</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=15"
+												class="zp-query">社会团体</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=16"
+												class="zp-query">港澳台公司</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;ct=7"
+												class="zp-query">其它</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="query-others__title">
+									<div
+										class="query-others__title__item query-others__title__item">
+										<span class="">职位类型</span> <span
+											class="query-others__title__down"></span>
+									</div>
+									<div class="query-others__borders employmentType"
+										style="display: none;">
+										<ul class="query-others__borders__detail">
+											<li class="query-others__borders__detail__item "><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;et=-1"
+												class="zp-queryChecked"> 不限</a></li>
+											<!---->
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;et=2"
+												class="zp-query">全职</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;et=1"
+												class="zp-query">兼职</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;et=4"
+												class="zp-query">实习</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;et=5"
+												class="zp-query">校园</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="query-others__title">
+									<div
+										class="query-others__title__item query-others__title__item">
+										<span class="">职位标签</span> <span
+											class="query-others__title__down"></span>
+									</div>
+									<div class="query-others__borders jobWelfareTag"
+										style="display: none;">
+										<ul class="query-others__borders__detail">
+											<li class="query-others__borders__detail__item "><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=-1"
+												class="zp-queryChecked"> 不限</a></li>
+											<!---->
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10022"
+												class="zp-query">创业公司</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10024"
+												class="zp-query">14薪</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10025"
+												class="zp-query">住房补贴</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10026"
+												class="zp-query">无试用期</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10027"
+												class="zp-query">免息房贷</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10028"
+												class="zp-query">每年多次调薪</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10029"
+												class="zp-query">健身俱乐部</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10000"
+												class="zp-query">五险一金</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10001"
+												class="zp-query">年底双薪</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10002"
+												class="zp-query">绩效奖金</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10003"
+												class="zp-query">年终分红</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10004"
+												class="zp-query">股票期权</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10005"
+												class="zp-query">加班补助</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10006"
+												class="zp-query">全勤奖</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10007"
+												class="zp-query">包吃</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10008"
+												class="zp-query">包住</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10009"
+												class="zp-query">交通补助</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10010"
+												class="zp-query">餐补</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10011"
+												class="zp-query">房补</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10012"
+												class="zp-query">通讯补贴</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10013"
+												class="zp-query">采暖补贴</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10014"
+												class="zp-query">带薪年假</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10015"
+												class="zp-query">弹性工作</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10016"
+												class="zp-query">补充医疗保险</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10017"
+												class="zp-query">定期体检</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10018"
+												class="zp-query">免费班车</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10019"
+												class="zp-query">员工旅游</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10020"
+												class="zp-query">高温补贴</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10021"
+												class="zp-query">节日福利</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10023"
+												class="zp-query">不加班</a></li>
+											<li class="query-others__borders__detail__item"><a
+												href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3&amp;fjt=10030"
+												class="zp-query">周末双休</a></li>
+										</ul>
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+						</div>
+						<div style="clear: both"></div>
+					</div>
+				</div>
+				<div id="sou-listSortBox" class="listsort">
+					<ul id="sou_sortUls" class="listsort__uls">
+						<li class="listsort__uls__item"><a
+							href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3"
+							class="listsort__uls__item__a listsort__uls__item__a--checked">智能匹配</a></li>
+						<li class="listsort__uls__item"><a
+							href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3"
+							class="listsort__uls__item__a">薪酬最高</a></li>
+						<li class="listsort__uls__item"><a
+							href="?jl=599&amp;sf=8001&amp;st=10000&amp;kw=java&amp;kt=3"
+							class="listsort__uls__item__a">最新发布</a></li>
+					</ul>
+					<div id="sou_showtypes" class="listsort__showtypes">
+						<span class="listsort__showtypes__title">显示方式</span>
+						<div
+							class="showType listsort__showtypes__pile listsort__showtypes__pile--first">
+							<span
+								class="listsort__showtypes__pile__span--checked listsort__showtypes__pile__span"></span>
+						</div>
+						<div class="showType listsort__showtypes__pile">
+							<span class="listsort__showtypes__pile__simple"></span>
+						</div>
+					</div>
+				</div>
+				<div id="listItemPile" class="clearfix zp_container--item">
+					<!---->
+					<div id="rightAdbox" class="rightadbox">
+						<div class="a-affix">
+							<div class="a-affix__container a--affixed"
+								style="left: 984.5px; top: 100px;">
+								<div class="browsingHistory rightadbox__history">
+									<!---->
+									<a href="http://t.cn/RmvoBVP" target="ads"
+										class="rightadbox__history__adv"><img
+										src="//desktop-bucket.zhaopin.cn/assets/1-resume.a3759d.png"
+										class="rightadbox__history__adv__img"></a><a target="ads"
+										class="rightadbox__history__adv rightadbox__history__adv--nohand"><img
+										src="//desktop-bucket.zhaopin.cn/assets/3-miniprogram-qrcode.35c2b4.jpg"
+										class="rightadbox__history__adv__img"></a>
+								</div>
+							</div>
+							<div class="a-affix__shadow" style="width: 190px; height: 271px;"></div>
+						</div>
+					</div>
+					<div class="contentpile">
+						<div id="listContent" class="contentpile__content">
+					<>		
+							<div class="contentpile__content__wrapper clearfix">
+								<!---->
+								<div class="contentpile__content__wrapper__item clearfix">
+									<a href="https://jobs.zhaopin.com/CZ633197330J00046424810.htm"
+										zp-stat-jdno="CZ633197330J00046424810" zp-stat-pos="3"
+										zp-stat-pageno="1" zp-stat-pagelim="90"
+										zp-stat-funczone="401901" target="_blank"
+										zp-stat-track="jd_click" zp-stat-id="jd_click"
+										class="contentpile__content__wrapper__item__info"><div
+											class="contentpile__content__wrapper__item__info__box
+                  contentpile__content__wrapper__item__info__box--name itemBox nameBox">
+											<div
+												class="contentpile__content__wrapper__item__info__box__jobname jobName">
+												<span title="java讲师"
+													class="contentpile__content__wrapper__item__info__box__jobname__title"><span
+													style="color: #FF5959;">java</span>讲师</span> <span
+													class="contentpile__content__wrapper__item__info__box__jobname__sale"
+													style="display: none;"></span>
+												<!---->
+											</div>
+											<div
+												class="contentpile__content__wrapper__item__info__box__cname
+                  commpanyName">
+												<img src="//img03.zhaopin.cn/IHRNB/img/detailvipm.png"
+													alt=""
+													class="contentpile__content__wrapper__item__info__box__cname__viplevel is_vipLevel">
+												<a href="https://company.zhaopin.com/CZ633197330.htm"
+													title="沈阳众元未来创新科技有限公司" target="_blank"
+													class="contentpile__content__wrapper__item__info__box__cname__title company_title">沈阳众元未来创新科技有限公司</a>
+											</div>
+										</div>
+										<div
+											class="contentpile__content__wrapper__item__info__box
+              contentpile__content__wrapper__item__info--desc itemBox descBox">
+											<div
+												class="contentpile__content__wrapper__item__info__box__job jobDesc">
+												<p
+													class="contentpile__content__wrapper__item__info__box__job__saray">8K-10K</p>
+												<ul
+													class="contentpile__content__wrapper__item__info__box__job__demand">
+													<li
+														class="contentpile__content__wrapper__item__info__box__job__demand__item">沈阳-东陵区（浑南新区）</li>
+													<li
+														class="contentpile__content__wrapper__item__info__box__job__demand__item">3-5年</li>
+													<li
+														class="contentpile__content__wrapper__item__info__box__job__demand__item">本科</li>
+												</ul>
+											</div>
+											<div
+												class="contentpile__content__wrapper__item__info__box__job__comdec">
+												<span
+													class="contentpile__content__wrapper__item__info__box__job__comdec__item">民营
+												</span> <span
+													class="contentpile__content__wrapper__item__info__box__job__comdec__item">100-499人
+												</span>
+											</div>
+										</div>
+										<div
+											class="contentpile__content__wrapper__item__info__box itemBox">
+											<div
+												class="contentpile__content__wrapper__item__info__box__welfare job_welfare">
+												<!---->
+												<div
+													class="contentpile__content__wrapper__item__info__box__welfare__item">周末双休</div>
+												<div
+													class="contentpile__content__wrapper__item__info__box__welfare__item">五险一金</div>
+											</div>
+											<div
+												class="contentpile__content__wrapper__item__info__box__status">
+												<span
+													class="contentpile__content__wrapper__item__info__box__status__recruit">最新</span>
+												<!---->
+											</div>
+										</div></a> <span
+										class="zp-icon icon-job_checked-pile icon-job_isNotChecked"
+										style="display: none;"></span>
+									<div class="contentpile__content__wrapper__item__jobbtn"
+										style="display: none;">
+										<div
+											class="zp-jobBtn contentpile__content__wrapper__item__jobbtn__collect">
+											<span class="zp-icon icon-job_collectStar"></span> <span>收藏</span>
+										</div>
+										<div class="a-job-apply-button contentpile__apply-button">
+											<button type="button" class="a-button a--bordered a--filled">申请职位
+											</button>
+											<!---->
+										</div>
+									</div>
+								</div>
+							</div>						
+							<div id="check_paginationBox"
+								class="pagination pagination--chosed">
+								<div id="check_pagination" class="pagination__check">
+									<div id="pagination_content" class="pagination__check__page">
+										<div class="soupager">
+											<button disabled="disabled"
+												class="btn soupager__btn soupager__btn--disable">上一页</button>
+											<span class="soupager__index soupager__index--active">1</span>
+											<!---->
+											<span class="soupager__index">2</span><span
+												class="soupager__index">3</span><span
+												class="soupager__index">4</span>
+											<!---->
+											<button class="btn soupager__btn">下一页</button>
+											<div class="soupager__pagebox">
+												<span class="soupager__pagebox__go--text">到</span> <input
+													type="text" class="soupager__pagebox__goinp">
+												<button class="soupager__btn soupager__pagebox__gobtn">确定</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="homeAlertMask" class="sethome" style="display: none;">
+				<div class="sethome__alert">
+					<div class="sethome__alert__topbar">
+						<h1 class="sethome__alert__topbar__title">家的地址</h1>
+						<span title="关闭" class="sethome__alert__topbar__close"></span>
+					</div>
+					<div class="sethome__alert__main">
+						<h3 class="sethome__alert__main__title">请设置家的地址</h3>
+						<input type="text" placeholder="输入家的地址" autofocus="autofocus"
+							value="" class="sethome__alert__main__inp"> <i
+							class="sethome__alert__main__close" style="display: none;"></i>
+						<ul class="sethome__alert__main__uls"></ul>
+					</div>
+					<div onselectstart="return false"
+						class="sethome__alert__btn--disable">确定</div>
+				</div>
+			</div>
+			<div class="a-center-layout a-footer">
+				<div class="a-center-layout__content">
+					<div class="a-footer__top">
+						<dl class="a-footer__links">
+							<dt class="a-footer__title">关于</dt>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/about.html"
+									target="_blank">智联招聘</a>
+							</dd>
+							<dd>
+								<a href="//jobs.zhaopin.com/" target="_blank">人才招聘</a>
+							</dd>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/contact.html"
+									target="_blank">联系方式</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/sitemap.html" target="_blank">网站地图</a>
+							</dd>
+						</dl>
+						<dl class="a-footer__links">
+							<dt class="a-footer__title">帮助</dt>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/join.html"
+									target="_blank">加入智联</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/customer-service" target="_blank">客户服务</a>
+							</dd>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/law.html"
+									target="_blank">法律声明</a>
+							</dd>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/secrecy.html"
+									target="_blank">隐私政策</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/invoice-system" target="_blank">发票制度</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/service-agreement" target="_blank">用户协议</a>
+							</dd>
+						</dl>
+						<div class="a-footer__slogan">
+							<p class="a-footer__title">智联招聘 更懂你的价值</p>
+							<div class="a-footer__qrcode">
+								<span class="a-footer__mini-program">小程序</span><span
+									class="a-footer__wechat">官方微信</span>
+							</div>
+						</div>
+					</div>
+					<div class="a-footer__bottom">
+						<div class="a-footer__copyright">
+							<p>未经 Zhaopin.com 同意，不得转载本网站之所有招聘信息及作品 智联招聘网版权所有</p>
+							<p>京ICP备12025925号 京ICP证010207号 电信业务审批[2001]字第233号函 京公网安备
+								11010502002133号</p>
+						</div>
+						<div class="a-footer__certifications">
+							<a href="http://www.cyberpolice.cn/wfjb"
+								class="a-footer__certification"><i
+								class="a-footer__net-police"></i><span>网络110报警服务</span></a><a
+								href="//img00.zhaopin.cn/new2011/bottom/license.html"
+								class="a-footer__certification"><i
+								class="a-footer__electronic-license"></i><span>电子营业执照</span></a><a
+								href="//ss.knet.cn/verifyseal.dll?sn=e14032711010547573rieg000000&amp;ct=df&amp;a=1&amp;pa=500267"
+								class="a-footer__certification"><i
+								class="a-footer__knet-seal-logo"></i> <!----></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!---->
+		</div>
+	</div>
+
+
+
+</body>
+</html>

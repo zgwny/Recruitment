@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruitment.mapper.ResumeMapper" >
+  <resultMap id="BaseResultMap" type="com.recruitment.pojo.Resume" >
+    <id column="resumeId" property="resumeid" jdbcType="CHAR" />
+    <result column="wantId" property="wantid" jdbcType="CHAR" />
+    <result column="porjectsId" property="porjectsid" jdbcType="CHAR" />
+    <result column="enducationId" property="enducationid" jdbcType="CHAR" />
+    <result column="skillId" property="skillid" jdbcType="CHAR" />
+    <result column="rewardId" property="rewardid" jdbcType="CHAR" />
+    <result column="workId" property="workid" jdbcType="CHAR" />
+    <result column="introduceId" property="introduceid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    resumeId, wantId, porjectsId, enducationId, skillId, rewardId, workId, introduceId
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruitment.pojo.ResumeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from resume
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from resume
+    where resumeId = #{resumeid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from resume
+    where resumeId = #{resumeid,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruitment.pojo.ResumeExample" >
+    delete from resume
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruitment.pojo.Resume" >
+    insert into resume (resumeId, wantId, porjectsId, 
+      enducationId, skillId, rewardId, 
+      workId, introduceId)
+    values (#{resumeid,jdbcType=CHAR}, #{wantid,jdbcType=CHAR}, #{porjectsid,jdbcType=CHAR}, 
+      #{enducationid,jdbcType=CHAR}, #{skillid,jdbcType=CHAR}, #{rewardid,jdbcType=CHAR}, 
+      #{workid,jdbcType=CHAR}, #{introduceid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruitment.pojo.Resume" >
+    insert into resume
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="resumeid != null" >
+        resumeId,
+      </if>
+      <if test="wantid != null" >
+        wantId,
+      </if>
+      <if test="porjectsid != null" >
+        porjectsId,
+      </if>
+      <if test="enducationid != null" >
+        enducationId,
+      </if>
+      <if test="skillid != null" >
+        skillId,
+      </if>
+      <if test="rewardid != null" >
+        rewardId,
+      </if>
+      <if test="workid != null" >
+        workId,
+      </if>
+      <if test="introduceid != null" >
+        introduceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="resumeid != null" >
+        #{resumeid,jdbcType=CHAR},
+      </if>
+      <if test="wantid != null" >
+        #{wantid,jdbcType=CHAR},
+      </if>
+      <if test="porjectsid != null" >
+        #{porjectsid,jdbcType=CHAR},
+      </if>
+      <if test="enducationid != null" >
+        #{enducationid,jdbcType=CHAR},
+      </if>
+      <if test="skillid != null" >
+        #{skillid,jdbcType=CHAR},
+      </if>
+      <if test="rewardid != null" >
+        #{rewardid,jdbcType=CHAR},
+      </if>
+      <if test="workid != null" >
+        #{workid,jdbcType=CHAR},
+      </if>
+      <if test="introduceid != null" >
+        #{introduceid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruitment.pojo.ResumeExample" resultType="java.lang.Integer" >
+    select count(*) from resume
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update resume
+    <set >
+      <if test="record.resumeid != null" >
+        resumeId = #{record.resumeid,jdbcType=CHAR},
+      </if>
+      <if test="record.wantid != null" >
+        wantId = #{record.wantid,jdbcType=CHAR},
+      </if>
+      <if test="record.porjectsid != null" >
+        porjectsId = #{record.porjectsid,jdbcType=CHAR},
+      </if>
+      <if test="record.enducationid != null" >
+        enducationId = #{record.enducationid,jdbcType=CHAR},
+      </if>
+      <if test="record.skillid != null" >
+        skillId = #{record.skillid,jdbcType=CHAR},
+      </if>
+      <if test="record.rewardid != null" >
+        rewardId = #{record.rewardid,jdbcType=CHAR},
+      </if>
+      <if test="record.workid != null" >
+        workId = #{record.workid,jdbcType=CHAR},
+      </if>
+      <if test="record.introduceid != null" >
+        introduceId = #{record.introduceid,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update resume
+    set resumeId = #{record.resumeid,jdbcType=CHAR},
+      wantId = #{record.wantid,jdbcType=CHAR},
+      porjectsId = #{record.porjectsid,jdbcType=CHAR},
+      enducationId = #{record.enducationid,jdbcType=CHAR},
+      skillId = #{record.skillid,jdbcType=CHAR},
+      rewardId = #{record.rewardid,jdbcType=CHAR},
+      workId = #{record.workid,jdbcType=CHAR},
+      introduceId = #{record.introduceid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruitment.pojo.Resume" >
+    update resume
+    <set >
+      <if test="wantid != null" >
+        wantId = #{wantid,jdbcType=CHAR},
+      </if>
+      <if test="porjectsid != null" >
+        porjectsId = #{porjectsid,jdbcType=CHAR},
+      </if>
+      <if test="enducationid != null" >
+        enducationId = #{enducationid,jdbcType=CHAR},
+      </if>
+      <if test="skillid != null" >
+        skillId = #{skillid,jdbcType=CHAR},
+      </if>
+      <if test="rewardid != null" >
+        rewardId = #{rewardid,jdbcType=CHAR},
+      </if>
+      <if test="workid != null" >
+        workId = #{workid,jdbcType=CHAR},
+      </if>
+      <if test="introduceid != null" >
+        introduceId = #{introduceid,jdbcType=CHAR},
+      </if>
+    </set>
+    where resumeId = #{resumeid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruitment.pojo.Resume" >
+    update resume
+    set wantId = #{wantid,jdbcType=CHAR},
+      porjectsId = #{porjectsid,jdbcType=CHAR},
+      enducationId = #{enducationid,jdbcType=CHAR},
+      skillId = #{skillid,jdbcType=CHAR},
+      rewardId = #{rewardid,jdbcType=CHAR},
+      workId = #{workid,jdbcType=CHAR},
+      introduceId = #{introduceid,jdbcType=CHAR}
+    where resumeId = #{resumeid,jdbcType=CHAR}
+  </update>
+</mapper>

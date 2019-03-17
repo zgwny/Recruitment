@@ -1,0 +1,8 @@
+#Tomcat publish data
+#Tue Dec 25 19:17:22 CST 2018
+org.eclipse.jst.j2ee.server\:recruitment-manager-dao=WEB-INF/lib/recruitment-manager-dao-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:recruitment-manager-common=WEB-INF/lib/recruitment-manager-common-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\zwz\\.m2\\repository\\org\\springframework\\spring-web\\4.1.3.RELEASE\\spring-web-4.1.3.RELEASE.jar=WEB-INF/lib/spring-web-4.1.3.RELEASE.jar
+org.eclipse.jst.j2ee.server\:recruitment-manager-pojo=WEB-INF/lib/recruitment-manager-pojo-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:pagehelper=WEB-INF/lib/pagehelper-3.4.2-fix.jar
+org.eclipse.jst.j2ee.server\:recruitment-common=WEB-INF/lib/recruitment-common-0.0.1-SNAPSHOT.jar

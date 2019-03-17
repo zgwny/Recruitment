@@ -1,0 +1,16 @@
+package com.recuitment.utils;
+
+public class IdUtils {
+
+    /**
+     * id生成方法
+     */
+    public static long genItemId() {
+            //取当前时间的长整形值包含毫秒
+            long millis = System.currentTimeMillis();
+            //如果不足两位前面补0
+            String str = millis + "";
+            long id = new Long(str);
+            return id;
+    }
+}

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruitment.mapper.RecruiterMapper" >
+  <resultMap id="BaseResultMap" type="com.recruitment.pojo.Recruiter" >
+    <id column="recruiterId" property="recruiterid" jdbcType="INTEGER" />
+    <result column="recruiterName" property="recruitername" jdbcType="CHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="companyId" property="companyid" jdbcType="INTEGER" />
+    <result column="positionn" property="positionn" jdbcType="CHAR" />
+    <result column="image" property="image" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    recruiterId, recruiterName, sex, companyId, positionn, image
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruitment.pojo.RecruiterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from recruiter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from recruiter
+    where recruiterId = #{recruiterid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from recruiter
+    where recruiterId = #{recruiterid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruitment.pojo.RecruiterExample" >
+    delete from recruiter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruitment.pojo.Recruiter" >
+    insert into recruiter (recruiterId, recruiterName, sex, 
+      companyId, positionn, image
+      )
+    values (#{recruiterid,jdbcType=INTEGER}, #{recruitername,jdbcType=CHAR}, #{sex,jdbcType=CHAR}, 
+      #{companyid,jdbcType=INTEGER}, #{positionn,jdbcType=CHAR}, #{image,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruitment.pojo.Recruiter" >
+    insert into recruiter
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recruiterid != null" >
+        recruiterId,
+      </if>
+      <if test="recruitername != null" >
+        recruiterName,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="companyid != null" >
+        companyId,
+      </if>
+      <if test="positionn != null" >
+        positionn,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recruiterid != null" >
+        #{recruiterid,jdbcType=INTEGER},
+      </if>
+      <if test="recruitername != null" >
+        #{recruitername,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="companyid != null" >
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="positionn != null" >
+        #{positionn,jdbcType=CHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruitment.pojo.RecruiterExample" resultType="java.lang.Integer" >
+    select count(*) from recruiter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update recruiter
+    <set >
+      <if test="record.recruiterid != null" >
+        recruiterId = #{record.recruiterid,jdbcType=INTEGER},
+      </if>
+      <if test="record.recruitername != null" >
+        recruiterName = #{record.recruitername,jdbcType=CHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=CHAR},
+      </if>
+      <if test="record.companyid != null" >
+        companyId = #{record.companyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.positionn != null" >
+        positionn = #{record.positionn,jdbcType=CHAR},
+      </if>
+      <if test="record.image != null" >
+        image = #{record.image,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update recruiter
+    set recruiterId = #{record.recruiterid,jdbcType=INTEGER},
+      recruiterName = #{record.recruitername,jdbcType=CHAR},
+      sex = #{record.sex,jdbcType=CHAR},
+      companyId = #{record.companyid,jdbcType=INTEGER},
+      positionn = #{record.positionn,jdbcType=CHAR},
+      image = #{record.image,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruitment.pojo.Recruiter" >
+    update recruiter
+    <set >
+      <if test="recruitername != null" >
+        recruiterName = #{recruitername,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="companyid != null" >
+        companyId = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="positionn != null" >
+        positionn = #{positionn,jdbcType=CHAR},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=CHAR},
+      </if>
+    </set>
+    where recruiterId = #{recruiterid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruitment.pojo.Recruiter" >
+    update recruiter
+    set recruiterName = #{recruitername,jdbcType=CHAR},
+      sex = #{sex,jdbcType=CHAR},
+      companyId = #{companyid,jdbcType=INTEGER},
+      positionn = #{positionn,jdbcType=CHAR},
+      image = #{image,jdbcType=CHAR}
+    where recruiterId = #{recruiterid,jdbcType=INTEGER}
+  </update>
+</mapper>

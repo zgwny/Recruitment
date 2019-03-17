@@ -1,0 +1,135 @@
+package com.recruitment.hr.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.recruitment.hr.service.CompanyService;
+import com.recruitment.hr.service.HRService;
+import com.recruitment.mapper.CompanyMapper;
+import com.recruitment.mapper.HrMapper;
+import com.recruitment.pojo.Company;
+import com.recruitment.pojo.CompanyExample;
+import com.recruitment.pojo.EasyUIDataGridResult;
+import com.recruitment.pojo.Hr;
+import com.recruitment.pojo.HrExample;
+import com.recruitment.pojo.HrExample.Criteria;
+import com.recruitment.pojo.RecruitmentResult;
+import com.recruitment.pojo.User;
+import com.recruitment.utils.CookieUtils;
+import com.recruitment.utils.DictionaryUtilsImpl;
+import com.recruitment.utils.HttpClientUtil;
+import com.recruitment.utils.JsonUtils;
+
+@Service
+public class HRServiceImpl implements HRService {
+
+    @Autowired
+    private HrMapper mapper;
+    @Autowired
+    private CompanyMapper companyMapper;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    DictionaryUtilsImpl dictionaryUtils = DictionaryUtilsImpl.getInstance();
+    @Value("${SSO_BASE_URL}")
+    private String SSO_BASE_URL;
+    @Value("${SSO_USER_TOKEN_SERVICE}")
+    private String SSO_USER_TOKEN_SERVICE;
+     /**
+     * 查询hr列表
+     */
+    @Override
+    public EasyUIDataGridResult getHrList(int page,int rows,HttpServletRequest request) {
+        PageHelper.startPage(page, rows);
+        HrExample example = new HrExample();
+        Criteria criteria = example.createCriteria();
+        criteria.andCompanyidEqualTo(getUser(request).getUserid());    
+        List<Hr> lists = mapper.selectByExample(example);
+        for(Hr hr:lists){
+            hr.setStatus(dictionaryUtils.dictionary(hr.getStatus(),"status").getItemvalue());
+        }
+        
+        PageInfo<Hr> pageInfo = new PageInfo<>(lists);
+        
+        EasyUIDataGridResult result = new EasyUIDataGridResult();
+        
+        result.setTotal(pageInfo.getTotal());
+        
+        result.setRows(lists);
+        
+        
+        return result;
+    
+    }
+    
+    /**
+     * 新建Hr
+     */
+    @Override
+    public RecruitmentResult create(Hr hr,HttpServletRequest request) {
+        User user = getUser(request);
+        hr.setCompanyid(user.getUserid());
+        Company company = (Company)companyService.getCompanyById(user.getUserid()).getData();
+        hr.setCompanyname(company.getName());
+        mapper.insert(hr);
+        return RecruitmentResult.ok();
+    }
+    
+    /**
+     * 根据id获取Hr
+     */
+    @Override
+    public RecruitmentResult getHrById(String hrid) {
+        HrExample example = new HrExample();
+        Criteria criteria =example.createCriteria();
+        criteria.andHridEqualTo(hrid);
+        List<Hr> lists = mapper.selectByExample(example);
+        Hr hr = lists.get(0);
+        hr.setStatus(dictionaryUtils.dictionary(hr.getStatus(),"status").getItemvalue());
+        return RecruitmentResult.ok(hr);
+    }
+    /**
+     * 根据id更新Hr
+     */
+    @Override
+    public RecruitmentResult updateHrById(Hr hr, String hrid) {
+        CompanyExample companyExample = new CompanyExample();
+        com.recruitment.pojo.CompanyExample.Criteria companyCriteria = companyExample.createCriteria();
+        companyCriteria.andCompanyidEqualTo(hr.getCompanyid());
+        Company company =companyMapper.selectByExample(companyExample).get(0);
+        hr.setCompanyname(company.getName());
+        HrExample example = new HrExample();
+        Criteria criteria =example.createCriteria();
+        criteria.andHridEqualTo(hrid);
+        mapper.updateByExample(hr, example);
+        return RecruitmentResult.ok();
+    }
+    /**
+     * 根据id删除Hr
+     */
+    @Override
+    public RecruitmentResult deleteHrById(String hrid) {
+        HrExample example = new HrExample();
+        Criteria criteria =example.createCriteria();
+        criteria.andHridEqualTo(hrid);
+        mapper.deleteByExample(example);
+        return RecruitmentResult.ok();
+    }
+
+    /**
+     * 从token中获取user对象
+     */
+    public User getUser(HttpServletRequest request){
+        String token = CookieUtils.getCookieValue(request, "USER_TOKEN");
+        String json =  HttpClientUtil.doGet(SSO_BASE_URL+SSO_USER_TOKEN_SERVICE+token);
+        RecruitmentResult result = RecruitmentResult.formatToPojo(json, User.class);
+        return (User)result.getData();
+    }
+}

@@ -1,0 +1,8 @@
+com\cruitment\service\impl\HRServiceImpl.class
+com\cruitment\service\CandidateService.class
+com\cruitment\service\CompanyService.class
+com\cruitment\service\JobService.class
+com\cruitment\service\impl\CandidateServiceImpl.class
+com\cruitment\service\impl\CompanyServiceImpl.class
+com\cruitment\service\HRService.class
+com\cruitment\service\impl\JobServiceImpl.class

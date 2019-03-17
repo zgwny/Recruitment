@@ -1,0 +1,491 @@
+/*职位申请*/
+
+.popupApply {
+    width: auto;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 4px 0 rgba(166, 172, 184, 0.20);
+    border-radius: 2px;
+    position: fixed;
+    _position: absolute;
+    z-index: 220;
+    top: -100px;
+    left: -100px;
+    visibility: hidden;
+}
+
+.popupApply .topBar {
+    font-size: 18px;
+    color: #333333;
+    line-height: 80px;
+    width: auto;
+    height: 80px;
+    clear: both;
+}
+
+.popupApply .topBar h1 {
+    margin-top: 30px;
+    font-size: 18px;
+    display: inline-block;
+    float: left;
+    margin-left: 40px;
+    _margin-left: 20px;
+    line-height: 31px;
+}
+
+.popupApply .topBar a {
+    margin-top: 30px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(//img04.zhaopin.cn/job-site/img/guanbi.png) no-repeat;
+    cursor: pointer;
+    float: right;
+    margin-right: 24px;
+}
+
+.mainBlock form {
+    height: auto;
+    background: #FFFFFF;
+}
+
+.loginForm {
+    margin-bottom: 40px;
+}
+
+.popupApply .topBar a:hover {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(//img04.zhaopin.cn/job-site/img/guanbi.png) no-repeat;
+    cursor: pointer;
+    float: right;
+    margin-right: 24px;
+}
+
+/*.popupApply .greyDottedLineH {
+    width: auto;
+    height: 1px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    background: #EDEDED;
+    margin: 30px 25px;
+    clear: both;
+}*/
+
+.popupApply .orgBgBlock {
+    width: auto;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #999999;
+    line-height: 14px;
+    margin: 10px 10px 10px 46px;
+    clear: both;
+}
+
+.popupApply .orgBgBlockTop {
+    width: auto;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #666666;
+    line-height: 18px;
+    text-align: center;
+    margin: -10px 10px 10px;
+    clear: both;
+}
+
+.popupApply .orgBgBlock label,
+.popupApply .orgBgBlockTop label {
+    color: #555;
+}
+
+.popupApply a.popapplyButton {
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-decoration: none;
+    text-align: center;
+    background: #1787FB;
+    border-radius: 100px;
+}
+
+.popupApply a.popapplyButton:hover {
+    color: #fff;
+    background: #066ed7;
+}
+
+/*.popupApply a.popapplyButton:hover {
+    width: 88px;
+    height: 29px;
+    display: inline-block;
+    color: #990001;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}*/
+
+.popupApply a {
+    text-decoration: none;
+}
+
+.popupApply .otherLogin {
+    padding-left: 114px;
+    margin: 75px 0 0 0 !important;
+    width: 390px !important;
+    position: relative;
+}
+
+.popupApply .otherLogin::after {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: -30px;
+    width: 440px;
+    height: 1px;
+    background: #EDEDED;
+}
+
+.popupApply .otherLogin span {
+    float: none !important;
+    padding-right: 10px;
+}
+
+.popupApply .otherLogin a {
+    display: inline-block !important;
+    float: none !important;
+    vertical-align: middle;
+}
+
+.popupApply a:hover {
+    color: #3f419e;
+    text-decoration: none;
+}
+
+.popupApply input,
+.popupApply select,
+.popupApply label.blueTxt {
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+}
+
+.popupApply input {
+    border: 1px solid #E6E8EC;
+    border-radius: 2px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.popupApply .loading {
+    width: auto;
+    background: #fff url(http://sou.zhaopin.com/images/ani_ajaxload.gif) no-repeat center center;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    visibility: hidden;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.popupApply .needFresh {
+    width: auto;
+    height: 30px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.popupApply #submitBlock {
+    width: 315px !important;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 auto;
+    clear: both;
+    text-align: center;
+    margin-bottom: 30px !important;
+}
+
+.popupApply #submitBlock .leftFBlock {
+    width: 80px;
+    float: left;
+    border-radius: 100px;
+    font-size: 16px;
+}
+
+.addpopupApply {
+    box-shadow: 2px 2px 4px 0 rgba(166, 172, 184, 0.20);
+    border-radius: 2px;
+}
+
+.popupApply #submitBlock .rightFBlock {
+    width: 186px;
+    float: right !important;
+    border: 1px solid #1787FB;
+    border-radius: 100px;
+    font-size: 16px;
+}
+
+.popupApply #submitBlock #rightFBlock {
+    width: 186px !important;
+}
+
+.popupApply #submitBlock .rightFBlock a {
+    background: none !important;
+    width: 186px !important;
+}
+
+.popupApply #submitBlock .rightFBlock .txtLink {
+    width: 186px;
+    height: 32px;
+}
+
+div#rightFBlocktwoclass {
+    float: right;
+}
+
+.popupApply #submitBlock a {
+    line-height: 32px;
+}
+
+.popupApply .mainBlock {
+    position: relative;
+    padding-top: 15px;
+    width: 490px;
+    /* padding-bottom: 30px; */
+}
+
+.popupApply .mainBlock #resumeScore_errCon {
+    position: absolute;
+    top: -18px;
+    left: 40px;
+    font-size: 12px;
+}
+
+.popupApply #loginBlock {
+    height: 288px;
+    /**/
+    background: #fff;
+}
+
+.popupApply #loginBlock ul {
+    margin: 0 0 0 41px;
+}
+
+.popupApply #loginBlock li {
+    padding: 0 0;
+}
+
+.popupApply #loginBlock .tips {
+    height: 16px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FF5959;
+    padding-left: 70px;
+}
+
+#loginBlock a.popapplyButton {
+    width: 88px !important;
+}
+
+.leftLabel>img {
+    width: 16px;
+    display: inline-block;
+}
+
+.forget-password {
+    margin-left: 14px;
+}
+
+.auto-login {
+    color: #333333;
+}
+
+.popupApply #loginBlock .textInput {
+    padding-left: 14px;
+    height: 32px;
+    margin-left: 8px;
+    margin-right: 10px;
+    width: 210px;
+    border: 1px solid #E6E8EC;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.popupApply #loginBlock #validate {
+    width: 66px;
+}
+
+.popupApply #vimg {
+    border: solid 1px #e8e8e8;
+    width: 70px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+.popupApply #applyBlock dl {
+    margin: 0 0 0 40px;
+}
+
+.popupApply #applyBlock dt {
+    padding: 3px 0 16px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 16px;
+}
+
+.popupApply #applyBlock dd {
+    padding: 3px 0;
+}
+
+.popupApply #applyBlock dd a {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #1787FB;
+    letter-spacing: 0;
+}
+
+.popupApply #applyBlock dd a.aValid {
+    margin-left: 10px;
+}
+
+.popupApply #applyBlock dd.blankBr {
+    height: 3px;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.popupApply #applyBlock dd.errInfo {
+    width: 100%;
+    line-height: 30px;
+    margin-left: -40px;
+    padding: 0 0 0 40px;
+    color: #DF9C2D;
+    background: #FFF8EC;
+}
+
+.error-tip {
+    height: 30px;
+    line-height: 30px;
+}
+
+.popupApply #applyBlock dd.errInfo a {
+    font-size: 12px;
+}
+
+.popupApply #defaultBlock dl {
+    margin: 0 0 0 40px;
+}
+
+.popupApply #defaultBlock dt {
+    color: #555;
+    padding: 3px 0 4px;
+}
+
+.popupApply #defaultBlock .largeTxt {
+    font-size: 14px;
+}
+
+.popupApply #defaultBlock dd {
+    padding: 3px 0;
+}
+
+.popupApply #defaultBlock dd a {
+    margin-left: 25px;
+}
+
+.popupApply #defaultBlock dd.blankBr {
+    height: 3px;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.popupApply #defaultBlock dd.errInfo {
+    color: #f00;
+}
+
+.popupApply #letters_sel {
+    width: 361px;
+    height: 32px;
+    border: 1px solid #E6E8EC;
+    border-radius: 2px;
+}
+
+.popupApply #resumes_sel {
+    width: 204px;
+    height: 32px;
+    border: 1px solid #E6E8EC;
+    border-radius: 2px;
+    outline-style: none;
+}
+
+.popupApply #language_sel {
+    width: 145px;
+    height: 32px;
+    border: 1px solid #E6E8EC;
+    border-radius: 2px;
+}
+
+.popupApply .redTips {
+    color: #f00;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.popupApply .redTips a {
+    color: #f00;
+}
+
+#applyNowPlaceholder {
+    width: auto;
+    height: 52px;
+}
+
+.defaultReIcon {
+    width: 92px;
+    height: 22px;
+    background: url(http://my.zhaopin.com/images/icon4setdefresu.gif);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popupApply ul,
+.popupApply dd {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0px;
+    visibility: hidden;
+}
+
+.divMask {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.popupApply h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#applyynid {
+    margin-left: -70px;
+    position: relative;
+    left: 78px;
+}

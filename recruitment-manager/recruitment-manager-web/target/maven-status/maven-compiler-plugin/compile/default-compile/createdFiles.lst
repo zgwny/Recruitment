@@ -1,0 +1,6 @@
+com\recruitment\controller\JobController.class
+com\recruitment\controller\companyController.class
+com\recruitment\controller\pageController.class
+com\recruitment\controller\CandidateController.class
+com\recruitment\controller\DictionaryConrtroller.class
+com\recruitment\controller\HrController.class

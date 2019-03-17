@@ -1,0 +1,109 @@
+package com.recruitment.user.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.SolrDocument;
+import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.SolrInputDocument;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.recruitment.mapper.JobMapper;
+import com.recruitment.pojo.Job;
+import com.recruitment.pojo.JobExample;
+import com.recruitment.pojo.RecruitmentResult;
+import com.recruitment.user.service.SearchService;
+import com.recruitment.utils.DictionaryUtilsImpl;
+import com.sun.tools.javadoc.resources.javadoc_zh_CN;
+
+@Service
+public class SearchServiceImpl  implements SearchService {
+
+    @Autowired
+    private JobMapper mapper;
+    @Autowired
+    DictionaryUtilsImpl dictionaryUtils = DictionaryUtilsImpl.getInstance();
+    @Autowired
+    private SolrServer solrServer;
+    
+    @Override
+    public RecruitmentResult importJob() throws Exception {
+        JobExample example = new JobExample();
+        List<Job> lists =mapper.selectByExample(example);
+        for(Job job:lists){
+            job.setSalary(dictionaryUtils.dictionary(job.getSalary(),"salary").getItemvalue());
+            job.setEducation(dictionaryUtils.dictionary(job.getEducation(),"education").getItemvalue());
+            job.setExperience(dictionaryUtils.dictionary(job.getExperience(),"experience").getItemvalue());
+            //创建文档对象
+            SolrInputDocument document = new SolrInputDocument();
+            //添加域
+            document.addField("id", job.getJobid());
+            document.addField("jobname", job.getJobname());
+            document.addField("salary", job.getSalary());
+            document.addField("education", job.getEducation());
+            document.addField("experience", job.getExperience());
+            document.addField("companyname", job.getCompanyname());
+            document.addField("address", job.getAddress());
+            //写入索引库
+            solrServer.add(document);
+        }
+        solrServer.commit();
+        return RecruitmentResult.ok();
+    }
+
+    @Override
+    public List<Job> queryJobByKey(String key) {
+      //创建查询条件
+        SolrQuery query = new SolrQuery();
+        //设置查询条件
+        query.setQuery(key);
+      //设置默认搜索域
+        query.set("df", "jobname");
+      //设置高亮
+        query.setHighlight(true);
+        query.addHighlightField("jobname");
+        query.setHighlightSimplePre("<font class=\"skcolor_ljg\">");
+        query.setHighlightSimplePost("</font>");
+      //执行查询
+        QueryResponse response = solrServer.query(query);
+        //取查询结果列表
+        SolrDocumentList solrDocumentList = response.getResults();
+        List<Job> itemList = new ArrayList<>();
+        for (SolrDocument solrDocument : solrDocumentList) {
+                Job job =new Job();
+                job.setJobname((String) solrDocument.get("jobname"));
+                job.setEducation((String) solrDocument.get("jobname"));
+                job.setExperience((String) solrDocument.get("jobname"));
+                job.setSalary((String) solrDocument.get("jobname"));
+                job.setCompanyid((String) solrDocument.get("jobname"));
+                job.setAddress((String) solrDocument.get("jobname"));
+                job.setCompanyname((String) solrDocument.get("jobname"));
+                
+                //取高亮显示
+                Map<String, Map<String, List<String>>> highlighting = response.getHighlighting();
+                List<String> list = highlighting.get(solrDocument.get("id")).get("item_title");
+                String itemTitle = "";
+                if (list != null && list.size() > 0) {
+                        //取高亮后的结果
+                        itemTitle = list.get(0);
+                } else {
+                        itemTitle = (String) solrDocument.get("item_title");
+                }
+                item.setTitle(itemTitle);
+                //添加到列表
+                itemList.add(item);
+        }
+
+
+
+
+        return null;
+    }
+    
+   
+
+}

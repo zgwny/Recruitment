@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruitment.mapper.WantMapper" >
+  <resultMap id="BaseResultMap" type="com.recruitment.pojo.Want" >
+    <id column="wantId" property="wantid" jdbcType="CHAR" />
+    <result column="wantJob" property="wantjob" jdbcType="CHAR" />
+    <result column="wantIndustry" property="wantindustry" jdbcType="CHAR" />
+    <result column="wantSalary" property="wantsalary" jdbcType="CHAR" />
+    <result column="wantCity" property="wantcity" jdbcType="CHAR" />
+    <result column="nature" property="nature" jdbcType="CHAR" />
+    <result column="workstatus" property="workstatus" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    wantId, wantJob, wantIndustry, wantSalary, wantCity, nature, workstatus
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruitment.pojo.WantExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from want
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from want
+    where wantId = #{wantid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from want
+    where wantId = #{wantid,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruitment.pojo.WantExample" >
+    delete from want
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruitment.pojo.Want" >
+    insert into want (wantId, wantJob, wantIndustry, 
+      wantSalary, wantCity, nature, 
+      workstatus)
+    values (#{wantid,jdbcType=CHAR}, #{wantjob,jdbcType=CHAR}, #{wantindustry,jdbcType=CHAR}, 
+      #{wantsalary,jdbcType=CHAR}, #{wantcity,jdbcType=CHAR}, #{nature,jdbcType=CHAR}, 
+      #{workstatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruitment.pojo.Want" >
+    insert into want
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wantid != null" >
+        wantId,
+      </if>
+      <if test="wantjob != null" >
+        wantJob,
+      </if>
+      <if test="wantindustry != null" >
+        wantIndustry,
+      </if>
+      <if test="wantsalary != null" >
+        wantSalary,
+      </if>
+      <if test="wantcity != null" >
+        wantCity,
+      </if>
+      <if test="nature != null" >
+        nature,
+      </if>
+      <if test="workstatus != null" >
+        workstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wantid != null" >
+        #{wantid,jdbcType=CHAR},
+      </if>
+      <if test="wantjob != null" >
+        #{wantjob,jdbcType=CHAR},
+      </if>
+      <if test="wantindustry != null" >
+        #{wantindustry,jdbcType=CHAR},
+      </if>
+      <if test="wantsalary != null" >
+        #{wantsalary,jdbcType=CHAR},
+      </if>
+      <if test="wantcity != null" >
+        #{wantcity,jdbcType=CHAR},
+      </if>
+      <if test="nature != null" >
+        #{nature,jdbcType=CHAR},
+      </if>
+      <if test="workstatus != null" >
+        #{workstatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruitment.pojo.WantExample" resultType="java.lang.Integer" >
+    select count(*) from want
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update want
+    <set >
+      <if test="record.wantid != null" >
+        wantId = #{record.wantid,jdbcType=CHAR},
+      </if>
+      <if test="record.wantjob != null" >
+        wantJob = #{record.wantjob,jdbcType=CHAR},
+      </if>
+      <if test="record.wantindustry != null" >
+        wantIndustry = #{record.wantindustry,jdbcType=CHAR},
+      </if>
+      <if test="record.wantsalary != null" >
+        wantSalary = #{record.wantsalary,jdbcType=CHAR},
+      </if>
+      <if test="record.wantcity != null" >
+        wantCity = #{record.wantcity,jdbcType=CHAR},
+      </if>
+      <if test="record.nature != null" >
+        nature = #{record.nature,jdbcType=CHAR},
+      </if>
+      <if test="record.workstatus != null" >
+        workstatus = #{record.workstatus,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update want
+    set wantId = #{record.wantid,jdbcType=CHAR},
+      wantJob = #{record.wantjob,jdbcType=CHAR},
+      wantIndustry = #{record.wantindustry,jdbcType=CHAR},
+      wantSalary = #{record.wantsalary,jdbcType=CHAR},
+      wantCity = #{record.wantcity,jdbcType=CHAR},
+      nature = #{record.nature,jdbcType=CHAR},
+      workstatus = #{record.workstatus,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruitment.pojo.Want" >
+    update want
+    <set >
+      <if test="wantjob != null" >
+        wantJob = #{wantjob,jdbcType=CHAR},
+      </if>
+      <if test="wantindustry != null" >
+        wantIndustry = #{wantindustry,jdbcType=CHAR},
+      </if>
+      <if test="wantsalary != null" >
+        wantSalary = #{wantsalary,jdbcType=CHAR},
+      </if>
+      <if test="wantcity != null" >
+        wantCity = #{wantcity,jdbcType=CHAR},
+      </if>
+      <if test="nature != null" >
+        nature = #{nature,jdbcType=CHAR},
+      </if>
+      <if test="workstatus != null" >
+        workstatus = #{workstatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where wantId = #{wantid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruitment.pojo.Want" >
+    update want
+    set wantJob = #{wantjob,jdbcType=CHAR},
+      wantIndustry = #{wantindustry,jdbcType=CHAR},
+      wantSalary = #{wantsalary,jdbcType=CHAR},
+      wantCity = #{wantcity,jdbcType=CHAR},
+      nature = #{nature,jdbcType=CHAR},
+      workstatus = #{workstatus,jdbcType=CHAR}
+    where wantId = #{wantid,jdbcType=CHAR}
+  </update>
+</mapper>

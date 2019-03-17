@@ -1,0 +1,200 @@
+package com.recruitment.user.service.impl;
+
+
+
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.solr.common.SolrInputDocument;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.recruitment.mapper.CandidateMapper;
+import com.recruitment.mapper.CompanyMapper;
+import com.recruitment.mapper.DeliveryMapper;
+import com.recruitment.mapper.JobDescriptionMapper;
+import com.recruitment.mapper.JobMapper;
+import com.recruitment.pojo.Candidate;
+import com.recruitment.pojo.CandidateExample;
+import com.recruitment.pojo.Company;
+import com.recruitment.pojo.CompanyExample;
+import com.recruitment.pojo.Delivery;
+import com.recruitment.pojo.EasyUIDataGridResult;
+import com.recruitment.pojo.Job;
+import com.recruitment.pojo.JobDescription;
+import com.recruitment.pojo.JobDescriptionExample;
+import com.recruitment.pojo.JobExample;
+import com.recruitment.pojo.JobExample.Criteria;
+import com.recruitment.pojo.RecruitmentResult;
+import com.recruitment.pojo.User;
+import com.recruitment.user.service.CompanyService;
+import com.recruitment.user.service.JobService;
+import com.recruitment.user.service.ResumeService;
+import com.recruitment.utils.CookieUtils;
+import com.recruitment.utils.DictionaryUtilsImpl;
+import com.recruitment.utils.HttpClientUtil;
+import com.recruitment.utils.IdGenUtils;
+import com.sun.tools.javadoc.resources.javadoc_zh_CN;
+
+@Service
+public class JobServiceImpl implements JobService {
+
+    @Autowired
+    private JobMapper mapper;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    private JobDescriptionMapper descMapper;
+    @Autowired
+    DictionaryUtilsImpl dictionaryUtils = DictionaryUtilsImpl.getInstance();
+    @Autowired
+    private JobMapper jobMapper;
+    @Autowired
+    private CompanyMapper companyMapper;
+    @Autowired
+    private DeliveryMapper deliveryMapper;
+    @Autowired
+    private ResumeService resumeService;
+    @Autowired
+    private CandidateMapper candidateMapper;
+    @Value("${SSO_BASE_URL}")
+    private String SSO_BASE_URL;
+    @Value("${SSO_USER_TOKEN_SERVICE}")
+    private String SSO_USER_TOKEN_SERVICE;
+    
+    /**
+     * 推荐求职者工作列表 limit 9
+     */
+    @Override
+    public List<Job> getAlljobList() {
+        JobExample example = new JobExample();
+        List<Job> lists =mapper.selectByExample(example);
+        for(Job job:lists){
+            job.setSalary(dictionaryUtils.dictionary(job.getSalary(),"salary").getItemvalue());
+            job.setEducation(dictionaryUtils.dictionary(job.getEducation(),"education").getItemvalue());
+            job.setExperience(dictionaryUtils.dictionary(job.getExperience(),"experience").getItemvalue());
+
+        }
+        return lists;
+    }
+
+    /**
+     * 根据id查询职位
+     */
+    @Override
+    public Job getjobById(String jobid) {
+        JobExample  jobExample = new JobExample();
+        com.recruitment.pojo.JobExample.Criteria descCriteria =jobExample.createCriteria();
+        descCriteria.andJobidEqualTo(jobid);
+        List<Job> list =jobMapper.selectByExample(jobExample);
+        if (!list.isEmpty() && list.size()>0) {
+            Job job = list.get(0);
+            job.setSalary(dictionaryUtils.dictionary(job.getSalary(),"salary").getItemvalue());
+            job.setEducation(dictionaryUtils.dictionary(job.getEducation(),"education").getItemvalue());
+            job.setExperience(dictionaryUtils.dictionary(job.getExperience(),"experience").getItemvalue());
+            return job;
+        }else{
+            return null;
+        }
+        
+    }
+
+    /**
+     * 查询职位描述
+     */
+
+    @Override
+    public JobDescription queryDescById(String jobid) {
+        JobDescriptionExample jobDescriptionExample = new JobDescriptionExample();
+        com.recruitment.pojo.JobDescriptionExample.Criteria descCriteria =jobDescriptionExample.createCriteria();
+        descCriteria.andJobidEqualTo(jobid);
+        List<JobDescription> list =descMapper.selectByExampleWithBLOBs(jobDescriptionExample);
+        if (!list.isEmpty() && list.size()>0) {
+            JobDescription jobDescription = list.get(0);
+            return jobDescription;
+        }else{
+            return null;
+        }
+        
+    }
+    /**
+     * 根据职位查询所属公司详细信息
+     */
+    @Override
+    public Company getCompanyByJobId(String jobid) {
+        JobExample  jobExample = new JobExample();
+        com.recruitment.pojo.JobExample.Criteria descCriteria =jobExample.createCriteria();
+        descCriteria.andJobidEqualTo(jobid);
+        List<Job> list =jobMapper.selectByExample(jobExample);
+        Job job = list.get(0);
+        String companyid = job.getCompanyid();
+        CompanyExample companyExample = new CompanyExample();
+        com.recruitment.pojo.CompanyExample.Criteria companyCriteria = companyExample.createCriteria();
+        companyCriteria.andCompanyidEqualTo(companyid);
+        List<Company> companies = companyMapper.selectByExampleWithBLOBs(companyExample);
+        
+        if (!companies.isEmpty() && companies.size()>0) {
+            Company company = companies.get(0);
+            company.setScale( dictionaryUtils.dictionary(company.getScale(),"scale").getItemvalue());
+            company.setFinancing(dictionaryUtils.dictionary(company.getFinancing(),"financing").getItemvalue());
+            company.setDirection(dictionaryUtils.dictionary(company.getDirection(),"direction").getItemvalue());
+            return company;
+        }else{
+            return null;
+        }
+        
+    }
+    /**
+     * 投递简历
+     */
+    @Override
+    public RecruitmentResult delivery(String jobid,HttpServletRequest request) {
+        String candidateid = getUser(request).getUserid();
+        Delivery  delivery = new Delivery();
+        delivery.setJobid(jobid);
+        JobExample jobExample = new JobExample();
+        Criteria criteria = jobExample.createCriteria();
+        criteria.andJobidEqualTo(jobid);
+        Job job = jobMapper.selectByExample(jobExample).get(0);
+        delivery.setJobname(job.getJobname());
+        delivery.setDepartment(job.getDepartment());
+        delivery.setHrid(job.getHrid());
+        CandidateExample candidateExample = new CandidateExample();
+        com.recruitment.pojo.CandidateExample.Criteria  candidateCriteria = candidateExample.createCriteria();
+        candidateCriteria.andCandidateidEqualTo(candidateid);
+        Candidate candidate = candidateMapper.selectByExample(candidateExample).get(0);
+        delivery.setSex(candidate.getSex());
+        delivery.setAge(candidate.getAge());
+        delivery.setAddress(candidate.getAddress());
+        delivery.setEmail(candidate.getEmail());
+        delivery.setExperience(candidate.getExperience());
+        delivery.setPhone(candidate.getPhone());      
+        delivery.setCandidatename(candidate.getName());
+        String resumid = resumeService.getResumeById(candidateid).getResumeid();
+        delivery.setResumeid(resumid);
+        Date deliverytime = new Date();
+        delivery.setDeliverytime(deliverytime);
+        delivery.setSchedule("1");
+        deliveryMapper.insert(delivery);
+        return RecruitmentResult.ok();
+    }
+    
+    /**
+     * 从token中获取user对象
+     */
+    public User getUser(HttpServletRequest request){
+        String token = CookieUtils.getCookieValue(request, "USER_TOKEN");
+        String json =  HttpClientUtil.doGet(SSO_BASE_URL+SSO_USER_TOKEN_SERVICE+token);
+        RecruitmentResult result = RecruitmentResult.formatToPojo(json, User.class);
+        return (User)result.getData();
+    }
+    
+  
+
+
+}

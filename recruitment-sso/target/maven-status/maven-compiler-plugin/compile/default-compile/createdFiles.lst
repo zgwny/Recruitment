@@ -1,0 +1,9 @@
+com\recruitment\sso\controller\RegisterController.class
+com\recruitment\sso\component\impl\JedisClientSingle.class
+com\recruitment\sso\controller\LoginController.class
+com\recruitment\sso\service\impl\LoginServiceImpl.class
+com\recruitment\sso\service\LoginService.class
+com\recruitment\sso\component\JedisClient.class
+com\recruitment\sso\service\RegisterService.class
+com\recruitment\sso\component\impl\JedisClientCluster.class
+com\recruitment\sso\service\impl\RegisterServiceImpl.class

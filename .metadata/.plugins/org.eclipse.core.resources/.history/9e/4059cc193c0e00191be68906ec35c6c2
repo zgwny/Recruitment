@@ -1,0 +1,13 @@
+package com.recruitment.user.service;
+
+import java.util.List;
+
+import com.recruitment.pojo.Job;
+import com.recruitment.pojo.RecruitmentResult;
+
+public interface SearchService {
+
+    RecruitmentResult importJob() throws Exception;
+    
+    List<Job> query();
+}

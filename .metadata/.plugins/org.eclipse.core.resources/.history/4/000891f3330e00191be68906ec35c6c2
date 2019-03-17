@@ -1,0 +1,7 @@
+package com.recruitment.user.service.impl;
+
+import com.recruitment.user.service.SearchService;
+
+public class SearchServiceImpl implements SearchService {
+
+}

@@ -1,0 +1,4 @@
+com\recruitment\pojo\EasyUIDataGridResult.class
+com\recruitment\utils\JsonUtils.class
+com\recruitment\pojo\RecruitmentResult.class
+com\recruitment\utils\IdGenUtils.class

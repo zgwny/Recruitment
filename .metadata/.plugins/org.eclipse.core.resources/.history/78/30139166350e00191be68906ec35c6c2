@@ -1,0 +1,5 @@
+package com.recruitment.user.controller;
+
+public class SearchController {
+
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=recruitment-manager-service/src\/main\/java&lt;com.cruitment.service{CompanyService.java[CompanyService" modifiers="513" timestamp="1546310794568"/>
+<typeInfo handle="=recruitment-manager-service/src\/main\/java&lt;com.cruitment.service{CandidateService.java[CandidateService" modifiers="513" timestamp="1546321206038"/>
+<typeInfo handle="=recruitment-manager-service/src\/main\/java&lt;com.cruitment.service{JobService.java[JobService" modifiers="513" timestamp="1544093027602"/>
+<typeInfo handle="=recruitment-sso/src\/main\/java&lt;com.recruitment.sso.service{RegisterService.java[RegisterService" modifiers="513" timestamp="1544599608170"/>
+<typeInfo handle="=recruitment-sso/src\/main\/java&lt;com.recruitment.sso.service{LoginService.java[LoginService" modifiers="513" timestamp="1544539374452"/>
+<typeInfo handle="=recruitment-user/src\/main\/java&lt;com.recruitment.user.service{ResumeService.java[ResumeService" modifiers="513" timestamp="1546163319905"/>
+<typeInfo handle="=recruitment-user/src\/main\/java&lt;com.recruitment.user.service{ScheduleService.java[ScheduleService" modifiers="513" timestamp="1545820481888"/>
+<typeInfo handle="=recruitment-user/E:\/Java\/jdk1.8.0_65\/jre\/lib\/rt.jar&lt;java.util.concurrent(ScheduledFuture.class[ScheduledFuture" modifiers="1537" timestamp="1446651038000"/>
+<typeInfo handle="=recruitment-user/src\/main\/java&lt;com.recruitment.user.service{UserService.java[UserService" modifiers="513" timestamp="1546086731378"/>
+<typeInfo handle="=recruitment-user/src\/main\/java&lt;com.recruitment.user.service{SearchService.java[SearchService" modifiers="513" timestamp="1546399399270"/>
+</typeInfoHistroy>

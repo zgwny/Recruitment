@@ -1,0 +1,269 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<title>IT人才求职招聘</title>
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="css/vendors.902088.css">
+<link rel="stylesheet" href="css/index.f6e4a9.css">
+
+<link rel="shortcut icon" type="image/ico"
+	href="//img00.zhaopin.cn/new2011/images/ie9.ico">
+<link rel="stylesheet" type="text/css" href="css/iconfont1.css">
+</head>
+<body>
+<body rlt="1">
+	<div id="root">
+		<div class="zp default">
+			<div>
+				<div class="mark" style="display: none;"></div>
+			</div>
+			<div class="zpheader clearfix">
+				<div class="zp-container zp-header-content">
+					<div class="topmenu zp-container">
+						<div class="clearfix topmenu__top">
+							<div class="fr">
+								<div class="zp-welcome hidden">
+									<span
+										onclick="dyweTrackEvent('companysize','postsearchsetting001')">欢迎回来</span>
+									<span class="zp-welcome__user"><span
+										class="zp-welcome__name">张文岳</span> <i
+										class="zp-welcome__user__side icon zp-iconfont zp-welcome__user__side--xiangxiajiatou"></i>
+										<div style="display: none;">
+											<ul class="zp-setlist zp-welcome__user__list">
+												<li class="zp-welcome__user__list__item"><a
+													href="https://i.zhaopin.com" target="_blank"
+													class="zp-welcome__user__list__item__link"> 个人中心 </a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="https://i.zhaopin.com/resume" target="_blank"
+													class="zp-welcome__user__list__item__link"> 我的简历</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="https://i.zhaopin.com/schedule?status=viewed"
+													target="_blank" class="zp-welcome__user__list__item__link">
+														求职反馈</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/ResumeCenter/AccountSet/Index"
+													target="_blank" class="zp-welcome__user__list__item__link">账号设置</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/ResumeCenter/MyCollect/Index"
+													target="_blank" class="zp-welcome__user__list__item__link">我的收藏</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/Order/OrderManager/MyOrder?waitPay=false&amp;pageNo=1&amp;pageSize=10"
+													target="_blank" class="zp-welcome__user__list__item__link">我的订单</a></li>
+												<li class="zp-welcome__user__list__item"><a
+													href="//i.zhaopin.com/Order/OrderManager/GetJobSeekerStatistics?serviceId=&amp;resumeNumber=&amp;version="
+													target="_blank" class="zp-welcome__user__list__item__link">求职统计</a></li>
+												<li class="zp-welcome__user__list__item"><a id="logout"
+													href="javascript:;"
+													class="zp-welcome__user__list__item__link">退出</a></li>
+											</ul>
+										</div></span>
+								</div>
+								<div class="zp-phone">
+									<i class="icon zp-iconfont zp-dianhua fs12 zp-phone__num"></i>400-885-9898
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="zp-searchs">
+						<div class="clearfix">
+							<div class="zp-searchs__box zp-search-box">
+								<div class="fl">
+									<a href="https://www.zhaopin.com" target="_blank"
+										class="fl zp-searchs__link"><img
+										src="//desktop-bucket.zhaopin.cn/assets/zhaopin_logo.465947.png"></a>
+								</div>
+								<div class="fl sf-search-box zp-searchs__sf">
+									<div class="search-box">
+										<div class="zp-search-common search-box__common">
+											<div onselectstart="return false"
+												class="zp-i-select zp-select">
+												<div class="zp-select__wrapper">
+													<div
+														class="zp-select__wrapper__label zp-i-select-label zp-iconfont">
+														<span class="zp-select__wrapper__label__word">职位</span>
+													</div>
+												</div>
+												<!---->
+											</div>
+											<input placeholder="请输入关键词,例如:JAVA,销售代表,行政助理等" type="text"
+												value="" class="search-box__common__input"> <a
+												href="javascript:;"
+												class="search-box__common__btn search-box__common__btn--blue"><i
+												class="icon zp-iconfont search-box__common__icon zp-search"></i></a>
+											<ul class="search-box__list search-box__list"
+												style="display: none;"></ul>
+										</div>
+										<div style="">
+											<p class="search-box__recommend">
+												<label class="search-box__recommend__keyword">热搜:</label> <a
+													class="search-box__recommend__word">java</a><a
+													class="search-box__recommend__word">沈阳志越城峰科技</a><a
+													class="search-box__recommend__word">鸿进科技</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="fr zp-searchs__qrcode">
+									<div class="download download__appbg">
+										<img
+											src="//desktop-bucket.zhaopin.cn/assets/app_qrcode.10daec.png"
+											class="download__app"> <span
+											class="download__text download__text--active"> 扫码下载APP
+										</span><span class="download__text"> 扫码进小程序 </span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!---->
+				</div>
+			</div>
+			<div class="souheader souheader--wrapper">
+				<ul class="zp-container souheader__channel clearfix">
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="https://www.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>首页</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//www.zhaopin.com/shenyang/" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>沈阳站</span>
+									<!----> <i class="souheader__channel__item__name--zpnew"></i></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="http://student.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>校园招聘</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//www.highpin.cn/zhiwei?fromType=12&amp;utm_source=zpsygdad&amp;utm_medium=cpc&amp;utm_content=zpsygdadtextlink&amp;utm_campaign=zpsygdadanalytics&amp;utm_term=onlinepromo_201402&amp;at=bde831ac59124454af12d989af53ad84&amp;rt=51fae8881fee46d5a150fea20ac4161c"
+						target="_blank" class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>高端职位</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="https://overseas.zhaopin.com/" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>海外招聘</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//study.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>智联教育</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="//ceping.zhaopin.com" target="_blank"
+						class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>智联测评</span>
+									<!----> <!----></span></span></a></li>
+					<li class="souheader__channel__item" style="line-height:;"><a
+						href="https://zq.zhaopin.com?utm_source=%E9%A6%96%E9%A1%B5&amp;utm_medium=button&amp;utm_campaign=&amp;utm_term=&amp;utm_content="
+						target="_blank" class="souheader__channel__item__a"><span
+							class="souheader__channel__item__name"><span><span>求职奇葩事</span>
+									<!----> <!----></span></span></a></li>
+				</ul>
+				<!---->
+			</div>			
+			<div id="homeAlertMask" class="sethome" style="display: none;">
+				<div class="sethome__alert">
+					<div class="sethome__alert__topbar">
+						<h1 class="sethome__alert__topbar__title">家的地址</h1>
+						<span title="关闭" class="sethome__alert__topbar__close"></span>
+					</div>
+					<div class="sethome__alert__main">
+						<h3 class="sethome__alert__main__title">请设置家的地址</h3>
+						<input type="text" placeholder="输入家的地址" autofocus="autofocus"
+							value="" class="sethome__alert__main__inp"> <i
+							class="sethome__alert__main__close" style="display: none;"></i>
+						<ul class="sethome__alert__main__uls"></ul>
+					</div>
+					<div onselectstart="return false"
+						class="sethome__alert__btn--disable">确定</div>
+				</div>
+			</div>
+			<div class="a-center-layout a-footer">
+				<div class="a-center-layout__content">
+					<div class="a-footer__top">
+						<dl class="a-footer__links">
+							<dt class="a-footer__title">关于</dt>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/about.html"
+									target="_blank">智联招聘</a>
+							</dd>
+							<dd>
+								<a href="//jobs.zhaopin.com/" target="_blank">人才招聘</a>
+							</dd>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/contact.html"
+									target="_blank">联系方式</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/sitemap.html" target="_blank">网站地图</a>
+							</dd>
+						</dl>
+						<dl class="a-footer__links">
+							<dt class="a-footer__title">帮助</dt>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/join.html"
+									target="_blank">加入智联</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/customer-service" target="_blank">客户服务</a>
+							</dd>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/law.html"
+									target="_blank">法律声明</a>
+							</dd>
+							<dd>
+								<a href="//special.zhaopin.com/sh/2009/aboutus/secrecy.html"
+									target="_blank">隐私政策</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/invoice-system" target="_blank">发票制度</a>
+							</dd>
+							<dd>
+								<a href="//www.zhaopin.com/service-agreement" target="_blank">用户协议</a>
+							</dd>
+						</dl>
+						<div class="a-footer__slogan">
+							<p class="a-footer__title">智联招聘 更懂你的价值</p>
+							<div class="a-footer__qrcode">
+								<span class="a-footer__mini-program">小程序</span><span
+									class="a-footer__wechat">官方微信</span>
+							</div>
+						</div>
+					</div>
+					<div class="a-footer__bottom">
+						<div class="a-footer__copyright">
+							<p>未经 Zhaopin.com 同意，不得转载本网站之所有招聘信息及作品 智联招聘网版权所有</p>
+							<p>京ICP备12025925号 京ICP证010207号 电信业务审批[2001]字第233号函 京公网安备
+								11010502002133号</p>
+						</div>
+						<div class="a-footer__certifications">
+							<a href="http://www.cyberpolice.cn/wfjb"
+								class="a-footer__certification"><i
+								class="a-footer__net-police"></i><span>网络110报警服务</span></a><a
+								href="//img00.zhaopin.cn/new2011/bottom/license.html"
+								class="a-footer__certification"><i
+								class="a-footer__electronic-license"></i><span>电子营业执照</span></a><a
+								href="//ss.knet.cn/verifyseal.dll?sn=e14032711010547573rieg000000&amp;ct=df&amp;a=1&amp;pa=500267"
+								class="a-footer__certification"><i
+								class="a-footer__knet-seal-logo"></i>
+							<!----></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!---->
+		</div>
+	</div>
+
+
+
+</body>
+</html>

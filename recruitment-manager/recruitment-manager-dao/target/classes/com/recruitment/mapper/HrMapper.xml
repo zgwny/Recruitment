@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruitment.mapper.HrMapper" >
+  <resultMap id="BaseResultMap" type="com.recruitment.pojo.Hr" >
+    <id column="hrid" property="hrid" jdbcType="CHAR" />
+    <result column="hrname" property="hrname" jdbcType="VARCHAR" />
+    <result column="companyid" property="companyid" jdbcType="CHAR" />
+    <result column="phone" property="phone" jdbcType="CHAR" />
+    <result column="image" property="image" jdbcType="CHAR" />
+    <result column="deparment" property="deparment" jdbcType="CHAR" />
+    <result column="position" property="position" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="companyname" property="companyname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    hrid, hrname, companyid, phone, image, deparment, position, status, time, companyname
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruitment.pojo.HrExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from hr
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from hr
+    where hrid = #{hrid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hr
+    where hrid = #{hrid,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruitment.pojo.HrExample" >
+    delete from hr
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruitment.pojo.Hr" >
+    insert into hr (hrid, hrname, companyid, 
+      phone, image, deparment, position, 
+      status, time, companyname
+      )
+    values (#{hrid,jdbcType=CHAR}, #{hrname,jdbcType=VARCHAR}, #{companyid,jdbcType=CHAR}, 
+      #{phone,jdbcType=CHAR}, #{image,jdbcType=CHAR}, #{deparment,jdbcType=CHAR}, #{position,jdbcType=CHAR}, 
+      #{status,jdbcType=CHAR}, #{time,jdbcType=VARCHAR}, #{companyname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruitment.pojo.Hr" >
+    insert into hr
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hrid != null" >
+        hrid,
+      </if>
+      <if test="hrname != null" >
+        hrname,
+      </if>
+      <if test="companyid != null" >
+        companyid,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="deparment != null" >
+        deparment,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="companyname != null" >
+        companyname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hrid != null" >
+        #{hrid,jdbcType=CHAR},
+      </if>
+      <if test="hrname != null" >
+        #{hrname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null" >
+        #{companyid,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=CHAR},
+      </if>
+      <if test="deparment != null" >
+        #{deparment,jdbcType=CHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null" >
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruitment.pojo.HrExample" resultType="java.lang.Integer" >
+    select count(*) from hr
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update hr
+    <set >
+      <if test="record.hrid != null" >
+        hrid = #{record.hrid,jdbcType=CHAR},
+      </if>
+      <if test="record.hrname != null" >
+        hrname = #{record.hrname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyid != null" >
+        companyid = #{record.companyid,jdbcType=CHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=CHAR},
+      </if>
+      <if test="record.image != null" >
+        image = #{record.image,jdbcType=CHAR},
+      </if>
+      <if test="record.deparment != null" >
+        deparment = #{record.deparment,jdbcType=CHAR},
+      </if>
+      <if test="record.position != null" >
+        position = #{record.position,jdbcType=CHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyname != null" >
+        companyname = #{record.companyname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update hr
+    set hrid = #{record.hrid,jdbcType=CHAR},
+      hrname = #{record.hrname,jdbcType=VARCHAR},
+      companyid = #{record.companyid,jdbcType=CHAR},
+      phone = #{record.phone,jdbcType=CHAR},
+      image = #{record.image,jdbcType=CHAR},
+      deparment = #{record.deparment,jdbcType=CHAR},
+      position = #{record.position,jdbcType=CHAR},
+      status = #{record.status,jdbcType=CHAR},
+      time = #{record.time,jdbcType=VARCHAR},
+      companyname = #{record.companyname,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruitment.pojo.Hr" >
+    update hr
+    <set >
+      <if test="hrname != null" >
+        hrname = #{hrname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null" >
+        companyid = #{companyid,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=CHAR},
+      </if>
+      <if test="deparment != null" >
+        deparment = #{deparment,jdbcType=CHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null" >
+        companyname = #{companyname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hrid = #{hrid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruitment.pojo.Hr" >
+    update hr
+    set hrname = #{hrname,jdbcType=VARCHAR},
+      companyid = #{companyid,jdbcType=CHAR},
+      phone = #{phone,jdbcType=CHAR},
+      image = #{image,jdbcType=CHAR},
+      deparment = #{deparment,jdbcType=CHAR},
+      position = #{position,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      time = #{time,jdbcType=VARCHAR},
+      companyname = #{companyname,jdbcType=VARCHAR}
+    where hrid = #{hrid,jdbcType=CHAR}
+  </update>
+</mapper>

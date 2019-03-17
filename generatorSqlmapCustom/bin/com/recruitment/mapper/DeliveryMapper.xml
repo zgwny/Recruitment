@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruitment.mapper.DeliveryMapper" >
+  <resultMap id="BaseResultMap" type="com.recruitment.pojo.Delivery" >
+    <id column="deliveryId" property="deliveryid" jdbcType="INTEGER" />
+    <result column="jobId" property="jobid" jdbcType="CHAR" />
+    <result column="resumeId" property="resumeid" jdbcType="CHAR" />
+    <result column="deliveryTime" property="deliverytime" jdbcType="TIMESTAMP" />
+    <result column="schedule" property="schedule" jdbcType="CHAR" />
+    <result column="jobname" property="jobname" jdbcType="CHAR" />
+    <result column="department" property="department" jdbcType="CHAR" />
+    <result column="candidatename" property="candidatename" jdbcType="CHAR" />
+    <result column="phone" property="phone" jdbcType="CHAR" />
+    <result column="email" property="email" jdbcType="CHAR" />
+    <result column="experience" property="experience" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="CHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="hrid" property="hrid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    deliveryId, jobId, resumeId, deliveryTime, schedule, jobname, department, candidatename, 
+    phone, email, experience, address, sex, age, hrid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruitment.pojo.DeliveryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from delivery
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from delivery
+    where deliveryId = #{deliveryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from delivery
+    where deliveryId = #{deliveryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruitment.pojo.DeliveryExample" >
+    delete from delivery
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruitment.pojo.Delivery" >
+    insert into delivery (deliveryId, jobId, resumeId, 
+      deliveryTime, schedule, jobname, 
+      department, candidatename, phone, 
+      email, experience, address, 
+      sex, age, hrid)
+    values (#{deliveryid,jdbcType=INTEGER}, #{jobid,jdbcType=CHAR}, #{resumeid,jdbcType=CHAR}, 
+      #{deliverytime,jdbcType=TIMESTAMP}, #{schedule,jdbcType=CHAR}, #{jobname,jdbcType=CHAR}, 
+      #{department,jdbcType=CHAR}, #{candidatename,jdbcType=CHAR}, #{phone,jdbcType=CHAR}, 
+      #{email,jdbcType=CHAR}, #{experience,jdbcType=CHAR}, #{address,jdbcType=CHAR}, 
+      #{sex,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, #{hrid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruitment.pojo.Delivery" >
+    insert into delivery
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="deliveryid != null" >
+        deliveryId,
+      </if>
+      <if test="jobid != null" >
+        jobId,
+      </if>
+      <if test="resumeid != null" >
+        resumeId,
+      </if>
+      <if test="deliverytime != null" >
+        deliveryTime,
+      </if>
+      <if test="schedule != null" >
+        schedule,
+      </if>
+      <if test="jobname != null" >
+        jobname,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="candidatename != null" >
+        candidatename,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="experience != null" >
+        experience,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="hrid != null" >
+        hrid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="deliveryid != null" >
+        #{deliveryid,jdbcType=INTEGER},
+      </if>
+      <if test="jobid != null" >
+        #{jobid,jdbcType=CHAR},
+      </if>
+      <if test="resumeid != null" >
+        #{resumeid,jdbcType=CHAR},
+      </if>
+      <if test="deliverytime != null" >
+        #{deliverytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schedule != null" >
+        #{schedule,jdbcType=CHAR},
+      </if>
+      <if test="jobname != null" >
+        #{jobname,jdbcType=CHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=CHAR},
+      </if>
+      <if test="candidatename != null" >
+        #{candidatename,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=CHAR},
+      </if>
+      <if test="experience != null" >
+        #{experience,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="hrid != null" >
+        #{hrid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruitment.pojo.DeliveryExample" resultType="java.lang.Integer" >
+    select count(*) from delivery
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update delivery
+    <set >
+      <if test="record.deliveryid != null" >
+        deliveryId = #{record.deliveryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.jobid != null" >
+        jobId = #{record.jobid,jdbcType=CHAR},
+      </if>
+      <if test="record.resumeid != null" >
+        resumeId = #{record.resumeid,jdbcType=CHAR},
+      </if>
+      <if test="record.deliverytime != null" >
+        deliveryTime = #{record.deliverytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.schedule != null" >
+        schedule = #{record.schedule,jdbcType=CHAR},
+      </if>
+      <if test="record.jobname != null" >
+        jobname = #{record.jobname,jdbcType=CHAR},
+      </if>
+      <if test="record.department != null" >
+        department = #{record.department,jdbcType=CHAR},
+      </if>
+      <if test="record.candidatename != null" >
+        candidatename = #{record.candidatename,jdbcType=CHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=CHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=CHAR},
+      </if>
+      <if test="record.experience != null" >
+        experience = #{record.experience,jdbcType=CHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=CHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=CHAR},
+      </if>
+      <if test="record.age != null" >
+        age = #{record.age,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrid != null" >
+        hrid = #{record.hrid,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update delivery
+    set deliveryId = #{record.deliveryid,jdbcType=INTEGER},
+      jobId = #{record.jobid,jdbcType=CHAR},
+      resumeId = #{record.resumeid,jdbcType=CHAR},
+      deliveryTime = #{record.deliverytime,jdbcType=TIMESTAMP},
+      schedule = #{record.schedule,jdbcType=CHAR},
+      jobname = #{record.jobname,jdbcType=CHAR},
+      department = #{record.department,jdbcType=CHAR},
+      candidatename = #{record.candidatename,jdbcType=CHAR},
+      phone = #{record.phone,jdbcType=CHAR},
+      email = #{record.email,jdbcType=CHAR},
+      experience = #{record.experience,jdbcType=CHAR},
+      address = #{record.address,jdbcType=CHAR},
+      sex = #{record.sex,jdbcType=CHAR},
+      age = #{record.age,jdbcType=INTEGER},
+      hrid = #{record.hrid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruitment.pojo.Delivery" >
+    update delivery
+    <set >
+      <if test="jobid != null" >
+        jobId = #{jobid,jdbcType=CHAR},
+      </if>
+      <if test="resumeid != null" >
+        resumeId = #{resumeid,jdbcType=CHAR},
+      </if>
+      <if test="deliverytime != null" >
+        deliveryTime = #{deliverytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schedule != null" >
+        schedule = #{schedule,jdbcType=CHAR},
+      </if>
+      <if test="jobname != null" >
+        jobname = #{jobname,jdbcType=CHAR},
+      </if>
+      <if test="department != null" >
+        department = #{department,jdbcType=CHAR},
+      </if>
+      <if test="candidatename != null" >
+        candidatename = #{candidatename,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=CHAR},
+      </if>
+      <if test="experience != null" >
+        experience = #{experience,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="hrid != null" >
+        hrid = #{hrid,jdbcType=CHAR},
+      </if>
+    </set>
+    where deliveryId = #{deliveryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruitment.pojo.Delivery" >
+    update delivery
+    set jobId = #{jobid,jdbcType=CHAR},
+      resumeId = #{resumeid,jdbcType=CHAR},
+      deliveryTime = #{deliverytime,jdbcType=TIMESTAMP},
+      schedule = #{schedule,jdbcType=CHAR},
+      jobname = #{jobname,jdbcType=CHAR},
+      department = #{department,jdbcType=CHAR},
+      candidatename = #{candidatename,jdbcType=CHAR},
+      phone = #{phone,jdbcType=CHAR},
+      email = #{email,jdbcType=CHAR},
+      experience = #{experience,jdbcType=CHAR},
+      address = #{address,jdbcType=CHAR},
+      sex = #{sex,jdbcType=CHAR},
+      age = #{age,jdbcType=INTEGER},
+      hrid = #{hrid,jdbcType=CHAR}
+    where deliveryId = #{deliveryid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,6 @@
+package com.recruitment.user.service;
+
+public interface SearchService {
+
+    Boolean importJob() throws Exception;
+}

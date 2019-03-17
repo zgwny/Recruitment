@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruitment.mapper.CompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.recruitment.pojo.Company" >
+    <id column="companyId" property="companyid" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="scale" property="scale" jdbcType="CHAR" />
+    <result column="financing" property="financing" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="CHAR" />
+    <result column="net" property="net" jdbcType="CHAR" />
+    <result column="buidlTime" property="buidltime" jdbcType="CHAR" />
+    <result column="capital" property="capital" jdbcType="CHAR" />
+    <result column="legalperson" property="legalperson" jdbcType="CHAR" />
+    <result column="direction" property="direction" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.recruitment.pojo.Company" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    companyId, name, scale, financing, address, net, buidlTime, capital, legalperson, 
+    direction
+  </sql>
+  <sql id="Blob_Column_List" >
+    description
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.recruitment.pojo.CompanyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from company
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruitment.pojo.CompanyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from company
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from company
+    where companyId = #{companyid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from company
+    where companyId = #{companyid,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruitment.pojo.CompanyExample" >
+    delete from company
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruitment.pojo.Company" >
+    insert into company (companyId, name, scale, 
+      financing, address, net, buidlTime, 
+      capital, legalperson, direction, 
+      description)
+    values (#{companyid,jdbcType=CHAR}, #{name,jdbcType=CHAR}, #{scale,jdbcType=CHAR}, 
+      #{financing,jdbcType=CHAR}, #{address,jdbcType=CHAR}, #{net,jdbcType=CHAR}, #{buidltime,jdbcType=CHAR}, 
+      #{capital,jdbcType=CHAR}, #{legalperson,jdbcType=CHAR}, #{direction,jdbcType=CHAR}, 
+      #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruitment.pojo.Company" >
+    insert into company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="companyid != null" >
+        companyId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="scale != null" >
+        scale,
+      </if>
+      <if test="financing != null" >
+        financing,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="net != null" >
+        net,
+      </if>
+      <if test="buidltime != null" >
+        buidlTime,
+      </if>
+      <if test="capital != null" >
+        capital,
+      </if>
+      <if test="legalperson != null" >
+        legalperson,
+      </if>
+      <if test="direction != null" >
+        direction,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="companyid != null" >
+        #{companyid,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="scale != null" >
+        #{scale,jdbcType=CHAR},
+      </if>
+      <if test="financing != null" >
+        #{financing,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=CHAR},
+      </if>
+      <if test="net != null" >
+        #{net,jdbcType=CHAR},
+      </if>
+      <if test="buidltime != null" >
+        #{buidltime,jdbcType=CHAR},
+      </if>
+      <if test="capital != null" >
+        #{capital,jdbcType=CHAR},
+      </if>
+      <if test="legalperson != null" >
+        #{legalperson,jdbcType=CHAR},
+      </if>
+      <if test="direction != null" >
+        #{direction,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruitment.pojo.CompanyExample" resultType="java.lang.Integer" >
+    select count(*) from company
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update company
+    <set >
+      <if test="record.companyid != null" >
+        companyId = #{record.companyid,jdbcType=CHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=CHAR},
+      </if>
+      <if test="record.scale != null" >
+        scale = #{record.scale,jdbcType=CHAR},
+      </if>
+      <if test="record.financing != null" >
+        financing = #{record.financing,jdbcType=CHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=CHAR},
+      </if>
+      <if test="record.net != null" >
+        net = #{record.net,jdbcType=CHAR},
+      </if>
+      <if test="record.buidltime != null" >
+        buidlTime = #{record.buidltime,jdbcType=CHAR},
+      </if>
+      <if test="record.capital != null" >
+        capital = #{record.capital,jdbcType=CHAR},
+      </if>
+      <if test="record.legalperson != null" >
+        legalperson = #{record.legalperson,jdbcType=CHAR},
+      </if>
+      <if test="record.direction != null" >
+        direction = #{record.direction,jdbcType=CHAR},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update company
+    set companyId = #{record.companyid,jdbcType=CHAR},
+      name = #{record.name,jdbcType=CHAR},
+      scale = #{record.scale,jdbcType=CHAR},
+      financing = #{record.financing,jdbcType=CHAR},
+      address = #{record.address,jdbcType=CHAR},
+      net = #{record.net,jdbcType=CHAR},
+      buidlTime = #{record.buidltime,jdbcType=CHAR},
+      capital = #{record.capital,jdbcType=CHAR},
+      legalperson = #{record.legalperson,jdbcType=CHAR},
+      direction = #{record.direction,jdbcType=CHAR},
+      description = #{record.description,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update company
+    set companyId = #{record.companyid,jdbcType=CHAR},
+      name = #{record.name,jdbcType=CHAR},
+      scale = #{record.scale,jdbcType=CHAR},
+      financing = #{record.financing,jdbcType=CHAR},
+      address = #{record.address,jdbcType=CHAR},
+      net = #{record.net,jdbcType=CHAR},
+      buidlTime = #{record.buidltime,jdbcType=CHAR},
+      capital = #{record.capital,jdbcType=CHAR},
+      legalperson = #{record.legalperson,jdbcType=CHAR},
+      direction = #{record.direction,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruitment.pojo.Company" >
+    update company
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="scale != null" >
+        scale = #{scale,jdbcType=CHAR},
+      </if>
+      <if test="financing != null" >
+        financing = #{financing,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=CHAR},
+      </if>
+      <if test="net != null" >
+        net = #{net,jdbcType=CHAR},
+      </if>
+      <if test="buidltime != null" >
+        buidlTime = #{buidltime,jdbcType=CHAR},
+      </if>
+      <if test="capital != null" >
+        capital = #{capital,jdbcType=CHAR},
+      </if>
+      <if test="legalperson != null" >
+        legalperson = #{legalperson,jdbcType=CHAR},
+      </if>
+      <if test="direction != null" >
+        direction = #{direction,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where companyId = #{companyid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.recruitment.pojo.Company" >
+    update company
+    set name = #{name,jdbcType=CHAR},
+      scale = #{scale,jdbcType=CHAR},
+      financing = #{financing,jdbcType=CHAR},
+      address = #{address,jdbcType=CHAR},
+      net = #{net,jdbcType=CHAR},
+      buidlTime = #{buidltime,jdbcType=CHAR},
+      capital = #{capital,jdbcType=CHAR},
+      legalperson = #{legalperson,jdbcType=CHAR},
+      direction = #{direction,jdbcType=CHAR},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where companyId = #{companyid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruitment.pojo.Company" >
+    update company
+    set name = #{name,jdbcType=CHAR},
+      scale = #{scale,jdbcType=CHAR},
+      financing = #{financing,jdbcType=CHAR},
+      address = #{address,jdbcType=CHAR},
+      net = #{net,jdbcType=CHAR},
+      buidlTime = #{buidltime,jdbcType=CHAR},
+      capital = #{capital,jdbcType=CHAR},
+      legalperson = #{legalperson,jdbcType=CHAR},
+      direction = #{direction,jdbcType=CHAR}
+    where companyId = #{companyid,jdbcType=CHAR}
+  </update>
+</mapper>

@@ -1,0 +1,238 @@
+body,div,dl,dt,dd,ul,ol,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,table,th,td{font-family:"Microsoft YaHei","simsun" ,Arial;margin:0;padding:0; font-size: 12px;word-break: break-all}
+fieldset,img,abbr,acronym{border:none}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+em,i{font-style:normal}
+a{text-decoration:none; color:#666;}
+a:hover{outline:none;}
+a,input:focus{outline:none}
+button{border:none;vertical-align:middle;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0;}
+address,caption,cite,code,dfn,th{font-weight:normal;font-style:normal;}
+ul,li{list-style:none;}
+a img, :link img, :visited img {border: 0;outline:none;}
+strong{ font-weight:normal;}
+
+/*clear,clearfix是清楚浮动的----clearfix用法是：给浮动元素的父级添加class="clearfix"，即可清楚子元素的浮动*/
+.clear{ clear:both;zoom:1;height:0;font-size:1px;line-height: 0px;text-indent:-9999px;}
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix {zoom:1;display:block;}
+.mr{margin-right:0!important;}
+.fl{ float:left;}
+.fr{ float:right;}
+/*中间部分*/
+.colf46{color:#f46254;}
+.col282{color:#282828;}
+.col333{color:#333;}
+.col555{color:#555;}
+.col999{color:#999;display: block;float: right;margin-right: 180px;}
+.colf46{color:#f46254;display: block;float: right;margin-right: 180px;}
+.col777{color:#777;}
+.fs14{font-size:14px;}
+.fs16{font-size:16px;}
+.fs18{font-size: 18px;}
+.pl120{padding-left:120px;}
+.pl140{padding-left: 140px;}
+.pl158{padding-left:158px;}
+.mb15{margin-bottom:15px;}
+.mb17{margin-bottom:17px;}
+.mb25{margin-bottom:25px;}
+.mb28{margin-bottom:28px;}
+.mb33{margin-bottom:33px;}
+.mb40{margin-bottom:40px;}
+.mr10{margin-right:10px;}
+.mr20{margin-right:20px;}
+.ml10{margin-left:10px;}
+.mb52{margin-bottom: 52px;}
+.ml30{margin-left:30px;}
+.mr150{margin-right:146px;}
+.fwb{font-weight:bold;}
+.h30{height:30px;}
+.mlr5{margin:0 3px;}
+.icon{background-image: url("//img01.zhaopin.cn/2014/c/img/resumeCenter/icon_common7.png");background-repeat: no-repeat;display:inline-block;vertical-align:middle;}
+.icon_set{background-position: -0px -0px; width: 16px; height: 21px;}
+.icon_yzm{background-position: -46px -0px; width: 24px; height: 24px;}
+.icon_yzmo{background-position: -46px -0px; width: 24px; height: 24px;}
+.icon_yzmot{background-position: -46px -0px; width: 24px; height: 24px;}
+.icon_yzmyx{background-position: -46px -0px; width: 24px; height: 24px;}
+.icon_add{background-position: -118px -0px; width: 14px; height: 14px;}
+.icon_edit{background-position: -132px -0px; width: 21px; height: 21px;cursor:pointer;}
+.icon_del{background-position: -153px -0px; width: 19px; height: 20px;cursor:pointer;margin-left: 5px;}
+.icon_edit,.icon_del{margin-top: -2px;}
+.icon_nphone{background-position: -188px -0px; width: 24px; height: 24px;}
+/*.phone_yzm .icon_nphone{background-position: -46px -0px;}*/
+.acc_container{
+	width:100%;
+	background:#f0f0f0;
+}
+.acc_content{
+	width:990px;
+	margin:0 auto;
+}
+.tab_con{
+	min-height:460px;
+	width: 950px;
+	padding:20px;
+	background:#e0e0e0;
+}
+.tabList{border-left:1px solid #dcdddd;border-top:1px solid #dcdddd;width:210px;height: 399px;background: #f4fafe;}
+.tabList li{position: relative; overflow: hidden;color: #333;font-size:16px; margin-right:-1px; width:190px;height:60px;padding-left:20px;border-right:1px solid #dcdddd;line-height: 60px;text-align:left;cursor:pointer;background: #f4fafe;}
+.tabList .cur{border-left:2px solid #27b3e9; margin-right:-3px;position: relative;font-weight: bold; color: #27b3e9;border-right-color: #fff;background: #fff;border-bottom: 1px solid #dcdcdc;border-top: 1px solid #dcdcdc;padding-left:18px;}
+.tabConList{overflow: hidden;
+			width:737px;
+			border: 1px solid #e1e1e1;;
+			background: #fff;
+			min-height: 399px;
+		}
+.tabCon{padding:60px 0 0 90px;}
+.tabCon li{padding:20px 0;}
+.acc_zhsz{
+	height: 60px;
+	line-height: 60px;
+	background:#f6f6f6;
+	color:#818181;
+	padding-left:20px;
+}
+.zhsz_font{margin-left:7px;font-size:18px;font-weight:bold;}
+.new_number{
+	width: 308px;
+	height: 28px;
+}
+.left_con{
+	width: 112px;
+	text-align:right;
+	display:inline-block;
+	margin-right:10px;
+	height:30px;
+	line-height: 30px;
+}
+.left_conq{
+	width: 147px;
+	text-align:right;
+	display:inline-block;
+	margin-right:10px;
+	float: left;
+	font-size: 16px;
+	height:30px;
+	line-height: 30px;
+}
+.p-list1 input{float: left;}
+/*屏蔽企业名称*/
+.enterpriseName{height:27px}
+.add_com{cursor:pointer;font-size: 16px;height:30px;line-height: 30px}
+.old_pwd{
+	width: 310px;
+	height: 30px;
+}
+.new_yzm{
+	width: 188px;
+	height: 28px;
+}
+.get_yzm,.seek_yx,.acc_save{
+	display:inline-block;
+	background: #3ba8f0;
+	color:#fff;
+	font-size:18px;
+	text-align:center;
+	border-radius:2px;
+}
+.seek_yx{
+	width: 190px;
+	height: 40px;
+	line-height: 40px;
+}
+.get_yzm{
+	width: 110px;
+	height: 32px;
+	line-height: 32px;
+	font-size:14px;
+}
+.acc_save{
+	width: 310px;
+	height: 40px;
+	line-height: 40px;
+}
+.save_quit{
+	display:inline-block;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	font-weight:bold;
+	background:#3ba8f0;
+	margin-top:2px;
+}
+.edit_quit{
+	display:none;
+	width: 45px;
+	height: 20px;
+	line-height: 20px;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	font-weight:bold;
+	background:#3ba8f0;
+	margin-top: 3px;
+}
+.com_name_wrap{display:inline-block;}
+.input_add,.icon_edit,.icon_del,.icon_yzm,.in_pwd,.icon_yzmyx,.in_yx,.bd_con,.bd_btn,.pin_yzm,.pin_phone,.phone_yzm{display:none;}
+/*立即验证弹窗样式*/
+.yz_content{
+	width: 510px;
+	height: 285px;
+	display: none;
+	position: absolute;
+	z-index: 100;
+}
+.yz_title{
+	padding:23px 20px 20px 20px;
+	background:#fafafb;
+	border-bottom:1px solid #d2d2d4;
+}
+.yz_title p span{font-size: 18px;color: #555}
+.yz_con{
+	padding:20px;
+	background:#f1f1f2;
+}
+/*修改密码弹窗*/
+.pwd_con{
+	padding:48px 130px 50px 130px;
+	background:#f1f1f2;
+}
+.pwd_con .seek_yx{margin-left: 24px;}
+/*修改密码后台返回的提示信息*/
+.responseMsg{margin:-20px 0px 15px 123px;color:#ff0000;font-size:14px;}
+/*弹窗遮罩样式*/
+.mask_full_bg{top: 0; left: 0; display: none; position: fixed; background: #000; z-index: 99; opacity: 0.5; filter: alpha(opacity=50); -moz-opacity: 0.5; -khtml-opacity: 0.5;}
+/*后添加的选择简历*/
+.choseP{position: relative;height:42px;z-index: 10;}
+.choseP font{display: block;float: left;height:30px;line-height: 30px;width:152px;margin-right: 5px;}
+.choseResume{width:302px;padding-left:10px;font-size:14px;color:#666;float: left;background:url(//img01.zhaopin.cn/2014/c/img/resumeCenter/choseRes.jpg) no-repeat 288px center;cursor: pointer;border: 1px solid #aaa;}
+.choseUl{position: absolute;background:#fff;width:312px;border: 1px solid #aaa;border-top:0;top:32px;left:157px;display:none;}
+.tabCon .choseUl li{height:28px;margin:0;padding:0 0 0 10px;line-height: 28px;font-size:14px;color:#666;cursor: pointer;}
+.tabCon .choseUl li:hover{background:#3ba8f0;color: #fff}
+/*屏蔽企业输入提示下拉框*/
+.en_sug_ul{position: absolute;background:#fff;width:312px;border: 1px solid #aaa;border-top:0;top:34px;left: 157px;display:none;}
+.en_sug_ul li{height:28px;margin:0;padding:0 0 0 10px;line-height: 28px;font-size:14px;color:#666;cursor: pointer;width:302px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;}
+.en_sug_ul li.current{background:#3ba8f0;color: #fff}
+.enterpriseAdd{position:relative}
+/* 屏蔽企业提示语 */
+.tips>span{height: 30px;line-height: 30px;font-size: 14px!important;color: #999!important}
+/*兼容*/
+.tabCon .icon{display: none;margin-top:3px;}
+.icon_add{display: inline-block !important;margin-right: 4px;}
+.bd_con{height:30px;}
+.pin_yzm{height:30px;line-height: 30px;}
+.com_name{display:block;height:24px;line-height: 24px;}
+.tabCon .icon_del {margin-top:0;}
+.icon_epop {display: block !important;width:15px;height:20px;background-position: -173px 0;cursor: pointer;}
+.pin_phone i,.in_yx,.modify_pwd i{height:30px;line-height: 30px;}
+.tabCon i.icon_add{margin-top:0;}
+.tabConList input{font-size: 14px;line-height: 30px}
+.tabCon{display: none;}
+.tabConList>div.cur{display: block !important;}
+.pwd_suc{text-align:center;}
+.phone_yzm {height:30px;line-height: 30px;}
+.bindAccount p span[data-mail]{width:240px;display: inline-block;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+/*.bindAccount p span,.bindAccount p a{float: left;}*/

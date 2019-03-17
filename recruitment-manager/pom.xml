@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.recruitment</groupId>
+    <artifactId>recruitment-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.recruitment</groupId>
+  <artifactId>recruitment-manager</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <!-- 添加依赖 -->
+	<dependencies>
+		<dependency>
+			<groupId>com.recruitment</groupId>
+			<artifactId>recruitment-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+  
+	<modules>
+		<module>recruitment-manager-pojo</module>
+		<module>recruitment-manager-dao</module>
+		<module>recruitment-manager.service</module>
+		<module>recruitment-manager-web</module>
+		<module>recruitment-manager-common</module>
+	</modules>
+</project>

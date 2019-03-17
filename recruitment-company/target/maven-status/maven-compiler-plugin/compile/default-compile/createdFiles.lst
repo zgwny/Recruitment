@@ -1,0 +1,16 @@
+com\recruitment\company\service\impl\CompanyServiceImpl.class
+com\recruitment\company\controller\DictionaryConrtroller.class
+com\recruitment\company\controller\JobController.class
+com\recruitment\company\controller\CandidateController.class
+com\recruitment\sso\component\impl\JedisClientSingle.class
+com\recruitment\company\controller\PageController.class
+com\recruitment\company\service\HRService.class
+com\recruitment\company\service\CompanyService.class
+com\recruitment\company\service\impl\HRServiceImpl.class
+com\recruitment\company\service\impl\JobServiceImpl.class
+com\recruitment\company\controller\HrController.class
+com\recruitment\sso\component\JedisClient.class
+com\recruitment\company\service\impl\CandidateServiceImpl.class
+com\recruitment\sso\component\impl\JedisClientCluster.class
+com\recruitment\company\service\CandidateService.class
+com\recruitment\company\service\JobService.class
